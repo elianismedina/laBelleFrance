@@ -154,6 +154,64 @@ ul li a:hover {
     background-color: #cc2323;
 }
 
+.footer-content {
+    background-color: #3d3bf3;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-content h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer-content p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.footer-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-content ul li {
+    margin: 0 10px;
+}
+
+.footer-content ul li a {
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.footer-content ul li a:hover {
+    color: #ff2929;
+}
+
+.footer-bottom {
+    background-color: #2c2abf;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-bottom a:hover {
+    color: #ff2929;
+}
+
 @media (max-width: 768px) {
     .checkbtn {
         display: block;
