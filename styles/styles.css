@@ -95,6 +95,16 @@ ul li a:hover {
     box-sizing: border-box;
     text-align: center;
 }
+.card h2 {
+    margin: 10px 0;
+    color: #3d3bf3;
+}
+.card p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #3d3bf3;
+}
 
 .card img {
     width: 100%;
@@ -103,11 +113,13 @@ ul li a:hover {
 }
 .card a {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 30px;
     background-color: #ff2929;
     color: white;
     text-decoration: none;
+    border-radius: 20px;
     transition: background-color 0.3s;
+    margin-top: 15px;
 }
 .card a:hover {
     background-color: #cc2323;
@@ -138,11 +150,11 @@ ul li a:hover {
 
 #recipe .right {
     background-color: #ffffff;
-    border: 1px solid #ddd;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 30px;
     text-align: center;
     box-sizing: border-box;
+    height: auto;
 }
 
 #recipe .right p {
@@ -164,6 +176,64 @@ ul li a:hover {
 #recipe .right a:hover {
     background-color: #cc2323;
 }
+
+#topics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.topiccard {
+
+    margin: 10px;
+    padding: 20px;
+    width: 22%;
+    box-sizing: border-box;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.topiccard:hover {
+    transform: translateY(-10px);
+    
+}
+
+.topiccard img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.topiccard h2 {
+    margin: 10px 0;
+    color: #3d3bf3;
+}
+
+.topiccard p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #3d3bf3;
+}
+
+.topiccard a {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #ff2929;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+.topiccard a:hover {
+    background-color: #cc2323;
+}
+
 .footer{
     position: fixed;
     height: 50px;
@@ -296,6 +366,15 @@ ul li a:hover {
 
     #recipe .left, #recipe .right {
         width: 100%;
+    }
+
+    #topics {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .topiccard {
+        width: 80%;
     }
 
     .footer-content {
