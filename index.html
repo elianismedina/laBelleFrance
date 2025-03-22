@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="es" dir="ltr">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" 
-          content="width=device-width,
-                   initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href=
-"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <link rel="stylesheet" href="/styles/styles.css">
     <title>La Belle France</title>
 </head>
-
 <body>
+  <header>
     <div class="topnav">
       <input type="text" placeholder="Buscar...">
-      <a href="./pages/login.html">Iniciar sesión</a>
-      <a href="#">Registrarse</a>
-      <p>EN | FR | SP</p>
+      <a href="./pages/login.html">INICIAR SESIÓN</a>
+       <a href="#">REGISTRARSE</a>
+      <label for="language-select" class="visually-hidden">Seleccionar idioma</label>
+      <select id="language-select">
+      <option value="es">ES</option>
+      <option value="en">EN</option>
+      <option value="fr">FR</option>
+      </select>
     </div>
     <nav>
         <input type="checkbox" id="check">
@@ -36,6 +40,7 @@
             <li><a href="./pages/comidacallejera.html">Comida callejera</a></li>
         </ul>
     </nav>
+  </header>
     <div class="container">
       <div class="card">
         <img src="/images/image1.png" alt="Imagen 1">
