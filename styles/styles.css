@@ -11,6 +11,7 @@ body {
     max-width: 100%;
     margin-bottom: 0px;
     padding-bottom: 0px;
+
 }
 #loginBody{
     max-width: 50%;
@@ -570,5 +571,13 @@ form {
     }
     .herococinatradicional .right img{
         height: auto;
+    }
+    #loginBody{
+        max-width: 100%;
+        margin: auto;
+        padding: 20px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 0px;
     }
 }
