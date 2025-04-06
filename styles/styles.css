@@ -52,6 +52,10 @@ nav {
     text-decoration: none;
     font-size: 15px;
     margin: 10px;
+    background-color: #b3a6d6;
+    padding: 7px;
+    border-radius: 20px;
+    
 
 }
 .topnav input[type=text] {
