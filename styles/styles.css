@@ -50,8 +50,8 @@ nav {
 .topnav a {
     color: #171717;
     text-decoration: none;
-    font-size: 15px;
-    margin: 10px;
+    font-size: 14px;
+    margin: 5px;
     background-color: #b3a6d6;
     padding: 7px;
     border-radius: 20px;
@@ -591,8 +591,8 @@ ul li a:hover {
         border-radius: 0px;
     }
     .topnav{
-        height: 40px;
-        padding: 10px;
+        height: 55px;
+        padding: 5px;
         justify-content: space-between;
         position:sticky;
         top: 0;
