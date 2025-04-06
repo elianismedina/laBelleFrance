@@ -40,15 +40,15 @@ nav {
     justify-content:end;
     align-items: center;
     gap: 20px;
-    background-color: #ff2929;
-    color: white;
+    background-color: #FF7A7A;
+    color: #171717;
     text-align: right;
     padding: 20px;
     padding-right: 50px;
     font-display: flex;
 }
 .topnav a {
-    color: white;
+    color: #171717;
     text-decoration: none;
     font-size: 15px;
     margin: 10px;
@@ -147,8 +147,8 @@ ul li a:hover {
 .card a {
     display: inline-block;
     padding: 10px 30px;
-    background-color: #ff2929;
-    color: white;
+    background-color: #FF7A7A;
+    color: #171717;
     text-decoration: none;
     border-radius: 20px;
     transition: background-color 0.3s;
@@ -201,10 +201,11 @@ ul li a:hover {
 #recipe .right a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ff2929;
-    color: white;
+    background-color: #FF7A7A;
+    color: #171717;
     text-decoration: none;
     transition: background-color 0.3s;
+    border-radius: 20px;
 }
 
 #recipe .right a:hover {
@@ -256,8 +257,8 @@ ul li a:hover {
 .topiccard a {
     display: inline-block;
     padding: 10px 30px;
-    background-color: #ff2929;
-    color: white;
+    background-color: #FF7A7A;
+    color: #171717;
     text-decoration: none;
     border-radius: 20px;
     transition: background-color 0.3s;
@@ -368,8 +369,8 @@ ul li a:hover {
   
   /* Set a style for all buttons */
   button {
-    background-color: #ff2929;
-    color: white;
+    background-color: #FF7A7A;
+    color: #171717;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
