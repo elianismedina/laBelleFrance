@@ -18,69 +18,146 @@
     </noscript>
     <!-- Inline critical CSS -->
     <style>
-        /* Critical CSS for above-the-fold content */
         body {
-            font-family: 'Sofia', sans-serif;
+            font-family: 'Sofia', 'Comic Sans MS', cursive;
             margin: 0;
             padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         .topnav {
             display: flex;
             justify-content: flex-end;
-            padding: 10px;
-            background: #f8f8f8;
+            padding: 20px;
+            padding-right: 50px;
+            background: #FF7A7A;
+            min-height: 60px;
+            align-items: center;
         }
         .topnav a, .topnav select {
             margin: 0 10px;
             text-decoration: none;
-            color: #333;
+            color: #171717;
+        }
+        .topnav select {
+            width: 60px;
         }
         nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 20px;
+            padding: 0 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         nav ul {
             display: flex;
             list-style: none;
             margin: 0;
             padding: 0;
+            min-height: 40px;
         }
         nav ul li {
-            margin: 0 15px;
+            margin-right: 40px;
         }
         nav ul li a {
             text-decoration: none;
-            color: #333;
+            color: #ff2929;
+        }
+        .checkbtn {
+            display: none;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .container, #recipe, #topics {
+            flex-grow: 1;
         }
         .container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-around;
             padding: 20px;
         }
         .card {
-            width: 300px;
+            width: 22%;
             margin: 10px;
+            padding: 20px;
             text-align: center;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         .card img {
             width: 100%;
             height: auto;
             display: block;
+            aspect-ratio: 350 / 197;
         }
         .card h2 {
             font-size: 1.5em;
             margin: 10px 0;
+            color: #3d3bf3;
         }
         .card p {
-            font-size: 1em;
+            font-size: 16px;
+            line-height: 1.5;
             margin: 10px 0;
+            color: #3d3bf3;
         }
         .card a {
-            color: #007bff;
+            color: #171717;
             text-decoration: none;
+            background-color: #FF7A7A;
+            padding: 10px 30px;
+            border-radius: 20px;
+        }
+        #recipe {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 40px;
+        }
+        #recipe .left {
+            width: 50%;
+            min-height: 300px;
+        }
+        #recipe .left img {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 350 / 197;
+        }
+        #recipe .right {
+            width: 50%;
+            padding: 30px;
+            text-align: center;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card {
+                width: 80%;
+            }
+            #recipe {
+                flex-direction: column;
+            }
+            #recipe .left, #recipe .right {
+                width: 100%;
+            }
+            .checkbtn {
+                display: block;
+            }
+            nav ul {
+                display: none;
+            }
         }
     </style>
     <!-- Defer non-critical CSS -->
@@ -128,19 +205,19 @@
             <a href="#">Leer más</a>
         </div>
         <div class="card">
-            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/f_auto,q_auto/v1743951306/image2_udadlx.webp" alt="Imagen 2" width="350" height="197" loading="lazy">
+            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/f_auto,q_auto,v1743951306/image2_udadlx.webp" alt="Imagen 2" width="350" height="197" loading="lazy">
             <h2>Conocida en todo el mundo</h2>
             <p>Cuando imaginamos Francia, pensamos en su cultura y patrimonio, pero también en su gastronomía y cocina típica: croissants, baguettes, crêpes, fromages, quiches… La gastronomía francesa es conocida en todo el mundo por su calidad y variedad.</p>
             <a href="#">Leer más</a>
         </div>
-        <div class="card">  
-            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/f_auto,q_auto/v1743951413/image3_hli0rt.webp" alt="Imagen 3" width="350" height="197" loading="lazy">
+        <div class="card">
+            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/f_auto,q_auto,v1743951413/image3_hli0rt.webp" alt="Imagen 3" width="350" height="197" loading="lazy">
             <h2>En constante evolución</h2>
             <p>La cocina francesa está caracterizada por la variedad de platos que presenta debido a la gran diversidad de alimentos que hay en el país, así como por su refinamiento. Es una gastronomía que está en constante evolución gracias a sus profesionales, que siempre buscan sorprender.</p>
             <a href="#">Leer más</a>
         </div>
         <div class="card">
-            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/f_auto,q_auto/v1743951527/image4_vifczz.webp" alt="Imagen 4" width="350" height="197" loading="lazy">
+            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/f_auto,q_auto,v1743951527/image4_vifczz.webp" alt="Imagen 4" width="350" height="197" loading="lazy">
             <h2>La madre de las cocinas</h2>
             <p>Se dice que la cocina francesa es “la madre de todas las cocinas” debido a sus grandes aportaciones a la cocina mundial, como el glaseado, la técnica del baño maría, el flambeado, la concentración de jugos, además de la creación de manjares como el puré, el paté y la mousse.</p>
             <a href="#">Leer más</a>
@@ -182,7 +259,7 @@
             <a href="/pages/comidacallejera.html">Comida callejera</a>
         </div>
     </section>
-    <footer>
+    <footer class="footer">
         <div class="footer-content">
             <h3>La Belle France</h3>
             <p>La Belle France es una página web dedicada a la gastronomía francesa. Aquí podrás encontrar información sobre la cocina tradicional, pastelería, quesos y vinos, restaurantes y comida callejera.</p>
