@@ -1,125 +1,186 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
-
 <head>
     <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width,initial-scale=1.0">
-    <meta name="La Belle France Homepage" content="La Belle France Homepage">
-    <link rel="stylesheet" href=
-    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia" media="all">
-    <link rel="stylesheet" href="/styles/styles.css" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="La Belle France Homepage">
+    <!-- Preload Google Fonts to reduce render-blocking -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia&display=swap">
+    </noscript>
+    <!-- Preload Font Awesome CSS -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </noscript>
+    <!-- Inline critical CSS -->
+    <style>
+        /* Critical CSS for above-the-fold content */
+        body {
+            font-family: 'Sofia', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .topnav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+            background: #f8f8f8;
+        }
+        .topnav a, .topnav select {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            width: 300px;
+            margin: 10px;
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <!-- Defer non-critical CSS -->
+    <link rel="stylesheet" href="/styles/styles.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/styles/styles.css">
+    </noscript>
     <title>La Belle France</title>
 </head>
 <body>
-  <header>
-    <div class="topnav">
-      <input type="text" placeholder="Buscar...">
-      <a href="./pages/login.html">INICIAR SESIÓN</a>
-       <a href="#">REGISTRARSE</a>
-      <label for="language-select" class="visually-hidden">Seleccionar idioma</label>
-      <select id="language-select">
-      <option value="es">ES</option>
-      <option value="en">EN</option>
-      <option value="fr">FR</option>
-      </select>
-    </div>
-    <nav>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
-        </label>
-        <a href="/">
-          <img src="/images/LaBelleFrance.svg" alt="Logo La Belle France" height="100px" width="100px">
-        </a>
-        <ul>
-            <li><a href="./pages/cocinatradicional.html">Cocina tradicional</a></li>
-            <li><a href="./pages/pasteleria.html">Pastelería</a></li>
-            <li><a href="./pages/quesosyvinos.html">Quesos y vinos</a></li>
-            <li><a href="./pages/restaurantes.html">Restaurantes</a></li>
-            <li><a href="./pages/comidacallejera.html">Comida callejera</a></li>
-        </ul>
-    </nav>
-  </header>
+    <header>
+        <div class="topnav">
+            <input type="text" placeholder="Buscar...">
+            <a href="./pages/login.html">INICIAR SESIÓN</a>
+            <a href="#">REGISTRARSE</a>
+            <label for="language-select" class="visually-hidden">Seleccionar idioma</label>
+            <select id="language-select">
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+                <option value="fr">FR</option>
+            </select>
+        </div>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a href="/">
+                <img src="/images/LaBelleFrance.svg" alt="Logo La Belle France" width="100" height="100">
+            </a>
+            <ul>
+                <li><a href="./pages/cocinatradicional.html">Cocina tradicional</a></li>
+                <li><a href="./pages/pasteleria.html">Pastelería</a></li>
+                <li><a href="./pages/quesosyvinos.html">Quesos y vinos</a></li>
+                <li><a href="./pages/restaurantes.html">Restaurantes</a></li>
+                <li><a href="./pages/comidacallejera.html">Comida callejera</a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="container">
-      <div class="card">
-        <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/c_pad,b_gen_fill,w_350,h_197,ar_16:9/v1743951054/image1_szb8jx.webp" alt="Imagen 1" loading="eager">
-        <h2>Variedad y refinamiento</h2>
-        <p>La gastronomía de Francia está caracterizada por su variedad, fruto de la diversidad regional francesa, tanto cultural como de materias primas, pero también por su refinamiento.  Su influencia se deja sentir en casi todas las cocinas del mundo occidental.</p>
-        <a href="#">Leer más</a>
-      </div>
-      <div class="card">
-        <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951306/image2_udadlx.webp" alt="Imagen 2">
-        <h2>Conocida en todo el mundo</h2>
-        <p>Cuando imaginamos Francia, pensamos en su cultura y patrimonio, pero también en su gastronomía y cocina típica: croissants, baguettes, crêpes, fromages, quiches… La gastronomía francesa es conocida en todo el mundo por su calidad y variedad.</p>
-        <a href="#">Leer más</a>
-      </div>
-      <div class="card">
-        <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951413/image3_hli0rt.webp" alt="Imagen 3">
-        <h2>En constante evolución</h2>
-        <p>La cocina francesa está caracterizada por la variedad de platos que presenta debido a la gran diversidad de alimentos que hay en el país, así como por su refinamiento. Es una gastronomía que está en constante evolución gracias a sus profesionales, que siempre buscan sorprender.</p>
-        <a href="#">Leer más</a>
-      </div>
-      <div class="card">
-        <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951527/image4_vifczz.webp" alt="Imagen 4">
-        <h2>La madre de las cocinas</h2>
-        <p> Se dice que la cocina francesa es “la madre de todas las cocinas” debido a sus grandes aportaciones a la cocina mundial, como el glaseado, la técnica del baño maría, el flambeado, la concentración de jugos, además de la creación de manjares como el puré, el paté y la mousse..</p>
-        <a href="#">Leer más</a>
-      </div>
-
+        <div class="card">
+            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/c_pad,b_gen_fill,w_350,h_197,ar_16:9/v1743951054/image1_szb8jx.webp" alt="Imagen 1" width="350" height="197" loading="eager">
+            <h2>Variedad y refinamiento</h2>
+            <p>La gastronomía de Francia está caracterizada por su variedad, fruto de la diversidad regional francesa, tanto cultural como de materias primas, pero también por su refinamiento. Su influencia se deja sentir en casi todas las cocinas del mundo occidental.</p>
+            <a href="#">Leer más</a>
+        </div>
+        <div class="card">
+            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951306/image2_udadlx.webp" alt="Imagen 2" width="350" height="197" loading="lazy">
+            <h2>Conocida en todo el mundo</h2>
+            <p>Cuando imaginamos Francia, pensamos en su cultura y patrimonio, pero también en su gastronomía y cocina típica: croissants, baguettes, crêpes, fromages, quiches… La gastronomía francesa es conocida en todo el mundo por su calidad y variedad.</p>
+            <a href="#">Leer más</a>
+        </div>
+        <div class="card">
+            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951413/image3_hli0rt.webp" alt="Imagen 3" width="350" height="197" loading="lazy">
+            <h2>En constante evolución</h2>
+            <p>La cocina francesa está caracterizada por la variedad de platos que presenta debido a la gran diversidad de alimentos que hay en el país, así como por su refinamiento. Es una gastronomía que está en constante evolución gracias a sus profesionales, que siempre buscan sorprender.</p>
+            <a href="#">Leer más</a>
+        </div>
+        <div class="card">
+            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951527/image4_vifczz.webp" alt="Imagen 4" width="350" height="197" loading="lazy">
+            <h2>La madre de las cocinas</h2>
+            <p>Se dice que la cocina francesa es “la madre de todas las cocinas” debido a sus grandes aportaciones a la cocina mundial, como el glaseado, la técnica del baño maría, el flambeado, la concentración de jugos, además de la creación de manjares como el puré, el paté y la mousse.</p>
+            <a href="#">Leer más</a>
+        </div>
     </div>
     <section id="recipe">
-      <div class="left">
-        <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951766/Rillete_rztihx.webp" alt="Rillete de sardina">
-      </div>
-      <div class="right">
-        <p>Las 'rilletes' originales son francesas y se hacen con carne desmenuzada o en filamentos.
-          En Francia está considerado un plato de charcutería. Se vende en tarrinas cubiertas por una película de grasa y, como untable que es, se consume en bocadillos o tostadas. Es un paté cremoso con sabor a mar perfecto para untar en tostadas de pan. Como aperitivo, merienda o cena informal, es una forma sencilla y atractiva de comer este pescado azul rico en ácidos grasos saludables.</p>
-        <a href="#">Leer más</a>
-      </div>
+        <div class="left">
+            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951766/Rillete_rztihx.webp" alt="Rillete de sardina" width="350" height="197" loading="lazy">
+        </div>
+        <div class="right">
+            <p>Las 'rilletes' originales son francesas y se hacen con carne desmenuzada o en filamentos. En Francia está considerado un plato de charcutería. Se vende en tarrinas cubiertas por una película de grasa y, como untable que es, se consume en bocadillos o tostadas. Es un paté cremoso con sabor a mar perfecto para untar en tostadas de pan. Como aperitivo, merienda o cena informal, es una forma sencilla y atractiva de comer este pescado azul rico en ácidos grasos saludables.</p>
+            <a href="#">Leer más</a>
+        </div>
     </section>
     <section id="topics">
-      <div class="topiccard">
-        <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951891/frenchfood_o7xorm.webp" alt="Cocina tradicional" width="100px" height="100px">
-        <p>Conoce más sobre la cocina tradicional francesa.</p>
-        <a href="/pages/cocinatradicional.html">Cocina tradicional</a>
-      </div>
-      <div class="topiccard">
-        <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951971/pasteleria_miwsdk.webp" alt="Pastelería" width="100px" height="100px">
-        <p>Conoce más sobre la pastelería francesa.</p>
-        <a href="/pages/pasteleria.html">Pastelería</a>
-      </div>
-      <div class="topiccard">
-        <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743952027/quesos_czwnnv.webp" alt="Quesos y vinos" width="100px" height="100px">
-        <p>Conoce más sobre los quesos y vinos franceses</p>
-        <a href="/pages/quesosyvinos.html">Quesos y vinos</a>
-      </div>
-      <div class="topiccard">
-        <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743952090/restaurantes_c5efym.webp" alt="Restaurantes" width="100px" height="100px">
-        <p>Conoce más sobre los restaurantes franceses.</p>
-        <a href="/pages/restaurantes.html">Restaurantes</a>
-      </div>
-      <div class="topiccard">
-        <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743952151/streetfood_akplji.webp" alt="Comida callejera" width="100px" height="100px">
-        <p>Conoce más sobre la comida callejera  francesa.</p>
-        <a href="/pages/cocinatradicional.html">Comida callejera</a>
-      </div>
+        <div class="topiccard">
+            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951891/frenchfood_o7xorm.webp" alt="Cocina tradicional" width="100" height="100" loading="lazy">
+            <p>Conoce más sobre la cocina tradicional francesa.</p>
+            <a href="/pages/cocinatradicional.html">Cocina tradicional</a>
+        </div>
+        <div class="topiccard">
+            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951971/pasteleria_miwsdk.webp" alt="Pastelería" width="100" height="100" loading="lazy">
+            <p>Conoce más sobre la pastelería francesa.</p>
+            <a href="/pages/pasteleria.html">Pastelería</a>
+        </div>
+        <div class="topiccard">
+            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743952027/quesos_czwnnv.webp" alt="Quesos y vinos" width="100" height="100" loading="lazy">
+            <p>Conoce más sobre los quesos y vinos franceses</p>
+            <a href="/pages/quesosyvinos.html">Quesos y vinos</a>
+        </div>
+        <div class="topiccard">
+            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743952090/restaurantes_c5efym.webp" alt="Restaurantes" width="100" height="100" loading="lazy">
+            <p>Conoce más sobre los restaurantes franceses.</p>
+            <a href="/pages/restaurantes.html">Restaurantes</a>
+        </div>
+        <div class="topiccard">
+            <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743952151/streetfood_akplji.webp" alt="Comida callejera" width="100" height="100" loading="lazy">
+            <p>Conoce más sobre la comida callejera francesa.</p>
+            <a href="/pages/comidacallejera.html">Comida callejera</a>
+        </div>
     </section>
     <footer>
-      <div class="footer-content">
-        <h3>La Belle France</h3>
-        <p>La Belle France es una página web dedicada a la gastronomía francesa. Aquí podrás encontrar información sobre la cocina tradicional, pastelería, quesos y vinos, restaurantes y comida callejera.</p>
-        <ul>
-          <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
-          <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i> </a></li>
-          <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
-        </ul>
-      </div>
-      <div class="footer-bottom">
-        &copy; La Belle France | Todos los derechos reservados | Designed by <a href="#">Elianis Medina</a>
-      </div>
+        <div class="footer-content">
+            <h3>La Belle France</h3>
+            <p>La Belle France es una página web dedicada a la gastronomía francesa. Aquí podrás encontrar información sobre la cocina tradicional, pastelería, quesos y vinos, restaurantes y comida callejera.</p>
+            <ul>
+                <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            © La Belle France | Todos los derechos reservados | Designed by <a href="#">Elianis Medina</a>
+        </div>
     </footer>
 </body>
 </html>
