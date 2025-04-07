@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="La Belle France Homepage">
     <!-- Preload the LCP image -->
-    <link rel="preload" href="https://res.cloudinary.com/dxa54qfxx/image/upload/f_auto,q_auto,c_pad,b_gen_fill,w_350,h_197,ar_16:9/v1743951054/image1_szb8jx.webp" as="image">
+    <link rel="preload" href="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951306/image2_udadlx.webp" as="image">
     <!-- Preload the local font -->
     <link rel="preload" href="/fonts/sofia-regular.woff2" as="font" type="font/woff2" crossorigin>
     <!-- Inline critical CSS -->
@@ -79,27 +79,32 @@
             flex-grow: 1;
         }
         .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             padding: 20px;
         }
         .card {
-            width: 22%;
-            margin: 10px;
-            padding: 20px;
-            text-align: center;
             background-color: #f9f9f9;
             border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            min-height: 400px;
+            margin: 0px;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            min-height: 450px; /* Adjust based on image (197px) + text + padding */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .card img {
             width: 100%;
             height: auto;
-            display: block;
+            object-fit: cover;
             aspect-ratio: 350 / 197;
+            flex-shrink: 0;
         }
         .card h2 {
             font-size: 1.5em;
@@ -144,8 +149,7 @@
         }
         @media (max-width: 768px) {
             .container {
-                flex-direction: column;
-                align-items: center;
+                grid-template-columns: 1fr;
             }
             .card {
                 width: 80%;

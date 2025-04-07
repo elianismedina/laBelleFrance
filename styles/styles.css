@@ -112,9 +112,9 @@ ul li a:hover {
     display: none;
 }
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
     padding: 20px;
 }
 .card {
@@ -122,11 +122,16 @@ ul li a:hover {
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 10px;
+    margin: 0px;
     padding: 20px;
-    width: 22%;
+    width: 100%;
     box-sizing: border-box;
     text-align: center;
+    min-height: 450px; /* Adjust based on image (197px) + text + padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
 .card h2 {
     margin: 10px 0;
@@ -137,12 +142,14 @@ ul li a:hover {
     font-size: 16px;
     line-height: 1.5;
     color: #3d3bf3;
+    flex-grow: 1;
 }
 .card img {
     width: 100%;
     height: auto;
     object-fit: cover;
     aspect-ratio: 350 / 197;
+    flex-shrink: 0;
 }
 .card a {
     display: inline-block;
@@ -463,8 +470,7 @@ span.psw {
         right: 0;
     }
     .container {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr;
     }
     .card {
         width: 80%;
