@@ -434,12 +434,14 @@ span.psw {
 @media (max-width: 768px) {
     .checkbtn {
         display: block;
-        order: 1;
         margin-right: 10px;
+        float: right;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
     ul {
         position: fixed;
-        top: 145px;
+        top: 105px;
         right: -100%;
         background-color: rgb(255, 255, 255);
         width: 100%;
