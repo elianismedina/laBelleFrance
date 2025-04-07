@@ -1,99 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
- <head>
-        <meta charset="utf-8">
-        <meta name="viewport" 
-              content="width=device-width,initial-scale=1.0">
-        <meta name="La Belle France Cocina Tradicional" content="La Belle France Cocina Tradicional, se abordan los platos de la gastronomía tradicional francesa más destacados a nivel mundial">
-        <link rel="stylesheet" href=
-    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-    <link rel="stylesheet" href="/styles/styles.css">
-        <title>Cocina tradicional</title>
+<html lang="es" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="La Belle France Cocina Tradicional">
+    <!-- Preload the local font -->
+    <link rel="preload" href="/fonts/sofia-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Inline critical CSS -->
+    <style>
+        @font-face {
+            font-family: 'Sofia';
+            src: url('/fonts/sofia-regular.woff2') format('woff2'),
+                url('/fonts/sofia-regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        body {
+            font-family: 'Sofia', 'Comic Sans MS';
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .topnav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+            padding-right: 50px;
+            background: #FF7A7A;
+            min-height: 60px;
+            align-items: center;
+        }
+        .topnav a, .topnav select {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #171717;
+        }
+        .topnav select {
+            width: 60px;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            list-style: none;
+            margin: 0;
+            padding: 20px;
+            min-height: 40px;
+        }
+        nav ul li {
+            margin-right: 40px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ff2929;
+        }
+        .checkbtn {
+            display: none;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .container {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .herococinatradicional {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+            padding: 40px;
+            gap: 0;
+        }
+        .herococinatradicional .left, .herococinatradicional .right {
+            width: 50%;
+            flex-grow: 1;
+            margin: 0;
+            padding: 0;
+        }
+        .herococinatradicional .left {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .herococinatradicional .left p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #3d3bf3;
+            text-align: justify;
+        }
+        .herococinatradicional .right img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        @media (max-width: 768px) {
+            .herococinatradicional {
+                flex-direction: column-reverse;
+                align-items: center;
+            }
+            .herococinatradicional .left, .herococinatradicional .right {
+                width: 100%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="/styles/styles.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/styles/styles.css">
+    </noscript>
+    <title>Cocina Tradicional</title>
 </head>
 <body>
-    <div class="topnav">
-        <a href="/pages/login.html">Iniciar sesión</a>
-        <a href="#">Registrarse</a>
-      </div>
-      <nav>
-          <input type="checkbox" id="check">
-          <label for="check" class="checkbtn">
-              <i class="fas fa-bars"></i>
-          </label>
-          <a href="/">
-            <img src="/images/LaBelleFrance.svg" alt="Logo La Belle France" height="100px" width="100px">
-          </a>
-          <ul>
-              <li><a href="/pages/cocinatradicional.html">Cocina tradicional</a></li>
-              <li><a href="/pages/pasteleria.html">Pastelería</a></li>
-              <li><a href="/pages/quesosyvinos.html">Quesos y vinos</a></li>
-              <li><a href="/pages/restaurantes.html">Restaurantes</a></li>
-              <li><a href="/pages/comidacallejera.html">Comida callejera</a></li>
-          </ul>
-      </nav>
-      <div class="container">
+    <header>
+        <div class="topnav">
+            <a href="./login.html">INICIAR SESIÓN</a>
+            <a href="#">REGISTRARSE</a>
+            <label for="language-select" class="visually-hidden">Seleccionar idioma</label>
+            <select id="language-select">
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+                <option value="fr">FR</option>
+            </select>
+        </div>
+        <nav>
+            <a href="/">
+                <img src="/images/LaBelleFrance.svg" alt="Logo La Belle France" width="100" height="100">
+            </a>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="30" height="30">
+                    <path fill="currentColor" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+                </svg>
+            </label>
+            <ul>
+                <li><a href="./cocinatradicional.html">Cocina tradicional</a></li>
+                <li><a href="./pasteleria.html">Pastelería</a></li>
+                <li><a href="./quesosyvinos.html">Quesos y vinos</a></li>
+                <li><a href="./restaurantes.html">Restaurantes</a></li>
+                <li><a href="./comidacallejera.html">Comida callejera</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
         <section class="herococinatradicional">
-          <div class="left">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis recusandae temporibus nobis, reprehenderit cupiditate veniam consectetur necessitatibus iste earum. Quibusdam facilis saepe asperiores vero similique temporibus nam est praesentium deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis recusandae temporibus nobis, reprehenderit cupiditate veniam consectetur necessitatibus iste earum. Quibusdam facilis saepe asperiores vero similique temporibus nam est praesentium deserunt.</p>
-          </div>
-          <div class="right">
-            <img src="/images/frenchfood.png" alt="Comida tradicioanal">
-          </div>
+            <div class="left">
+                <p>La cocina tradicional francesa es conocida por su refinamiento y diversidad. Desde los famosos croissants hasta los sofisticados platos de alta cocina, Francia ha dejado una marca indeleble en la gastronomía mundial.</p>
+            </div>
+            <div class="right">
+                <img src="/images/frenchfood.png" alt="Cocina tradicional">
+            </div>
         </section>
         <section id="recipe">
-          <div class="left">
-            <img src="/images/Rillete.png" alt="Rillete de sardina">
-          </div>
-          <div class="right">
-            <p>Las 'rilletes' originales son francesas y se hacen con carne desmenuzada o en filamentos.
-              En Francia está considerado un plato de charcutería. Se vende en tarrinas cubiertas por una película de grasa y, como untable que es, se consume en bocadillos o tostadas. Es un paté cremoso con sabor a mar perfecto para untar en tostadas de pan. Como aperitivo, merienda o cena informal, es una forma sencilla y atractiva de comer este pescado azul rico en ácidos grasos saludables.</p>
-            <a href="#">Leer más</a>
-          </div>
+            <div class="left">
+                <img src="/images/Rillete.png" alt="Rillete de sardina">
+            </div>
+            <div class="right">
+                <p>Las 'rilletes' originales son francesas y se hacen con carne desmenuzada o en filamentos. En Francia está considerado un plato de charcutería. Se vende en tarrinas cubiertas por una película de grasa y, como untable que es, se consume en bocadillos o tostadas.</p>
+                <a href="#">Leer más</a>
+            </div>
         </section>
         <section id="topics">
-          <div class="topiccard">
-            <img src="/images/frenchfood.png" alt="Cocina tradicional" width="100px" height="100px">
-            <p>Conoce más sobre la cocina tradicional francesa.</p>
-            <a href="/pages/cocinatradicional.html">Cocina tradicional</a>
-          </div>
-          <div class="topiccard">
-            <img src="/images/pasteleria.png" alt="Pastelería" width="100px" height="100px">
-            <p>Conoce más sobre la pastelería francesa.</p>
-            <a href="/pages/pasteleria.html">Pastelería</a>
-          </div>
-          <div class="topiccard">
-            <img src="/images/quesos.png" alt="Quesos y vinos" width="100px" height="100px">
-            <p>Conoce más sobre los quesos y vinos franceses</p>
-            <a href="/pages/quesosyvinos.html">Quesos y vinos</a>
-          </div>
-          <div class="topiccard">
-            <img src="/images/restaurantes.png" alt="Restaurantes" width="100px" height="100px">
-            <p>Conoce más sobre los restaurantes franceses.</p>
-            <a href="/pages/restaurantes.html">Restaurantes</a>
-          </div>
-          <div class="topiccard">
-            <img src="/images/streetfood.png" alt="Comida callejera" width="100px" height="100px">
-            <p>Conoce más sobre la comida callejera  francesa.</p>
-            <a href="/pages/cocinatradicional.html">Comida callejera</a>
-          </div>
+            <div class="topiccard">
+                <img src="/images/frenchfood.png" alt="Cocina tradicional" width="100" height="100">
+                <p>Conoce más sobre la cocina tradicional francesa.</p>
+                <a href="./cocinatradicional.html">Cocina tradicional</a>
+            </div>
+            <div class="topiccard">
+                <img src="/images/pasteleria.png" alt="Pastelería" width="100" height="100">
+                <p>Conoce más sobre la pastelería francesa.</p>
+                <a href="./pasteleria.html">Pastelería</a>
+            </div>
+            <div class="topiccard">
+                <img src="/images/quesos.png" alt="Quesos y vinos" width="100" height="100">
+                <p>Conoce más sobre los quesos y vinos franceses.</p>
+                <a href="./quesosyvinos.html">Quesos y vinos</a>
+            </div>
+            <div class="topiccard">
+                <img src="/images/restaurantes.png" alt="Restaurantes" width="100" height="100">
+                <p>Conoce más sobre los restaurantes franceses.</p>
+                <a href="./restaurantes.html">Restaurantes</a>
+            </div>
+            <div class="topiccard">
+                <img src="/images/streetfood.png" alt="Comida callejera" width="100" height="100">
+                <p>Conoce más sobre la comida callejera francesa.</p>
+                <a href="./comidacallejera.html">Comida callejera</a>
+            </div>
         </section>
-      </div>
-      <footer>
+    </div>
+    <footer>
         <div class="footer-content">
-          <h3>La Belle France</h3>
-          <p>La Belle France es una página web dedicada a la gastronomía francesa. Aquí podrás encontrar información sobre la cocina tradicional, pastelería, quesos y vinos, restaurantes y comida callejera.</p>
-          <ul>
-            <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
-            <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i> </a></li>
-            <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
-          </ul>
+            <h3>La Belle France</h3>
+            <p>La Belle France es una página web dedicada a la gastronomía francesa. Aquí podrás encontrar información sobre la cocina tradicional, pastelería, quesos y vinos, restaurantes y comida callejera.</p>
+            <ul>
+                <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
+            </ul>
         </div>
         <div class="footer-bottom">
-          &copy; La Belle France | Todos los derechos reservados | Designed by <a href="#">Elianis Medina</a>
+            &copy; La Belle France | Todos los derechos reservados | Designed by <a href="#">Elianis Medina</a>
         </div>
-      </footer>
-
+    </footer>
 </body>
 </html>
