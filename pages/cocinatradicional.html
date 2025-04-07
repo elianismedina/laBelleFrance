@@ -52,7 +52,7 @@
         }
         nav ul {
             display: flex;
-            justify-content: center;
+            justify-content:center;
             align-items: center;
             flex-grow: 1;
             list-style: none;
@@ -74,44 +74,54 @@
             line-height: 30px;
             text-align: center;
         }
+        .container, #recipe, #topics {
+            flex-grow: 1;
+        }
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             padding: 20px;
         }
-        .herococinatradicional {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: stretch;
-            padding: 40px;
-            gap: 0;
-        }
-        .herococinatradicional .left, .herococinatradicional .right {
-            width: 50%;
-            flex-grow: 1;
-            margin: 0;
-            padding: 0;
-        }
-        .herococinatradicional .left {
-            background-color: #ffffff;
+        .card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            text-align: center;
+            margin: 0px;
+            padding: 20px;
+            width: 100%;
             box-sizing: border-box;
+            text-align: center;
+            min-height: 450px; /* Adjust based on image (197px) + text + padding */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .herococinatradicional .left p {
-            font-size: 16px;
-            line-height: 1.5;
-            color: #3d3bf3;
-            text-align: justify;
-        }
-        .herococinatradicional .right img {
+        .card img {
             width: 100%;
             height: auto;
             object-fit: cover;
-            aspect-ratio: 600 / 400;
+            aspect-ratio: 350 / 197;
+            flex-shrink: 0;
+        }
+        .card h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #3d3bf3;
+        }
+        .card p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 10px 0;
+            color: #3d3bf3;
+        }
+        .card a {
+            color: #171717;
+            text-decoration: none;
+            background-color: #FF7A7A;
+            padding: 10px 30px;
+            border-radius: 20px;
         }
         #recipe {
             display: flex;
@@ -121,11 +131,12 @@
         }
         #recipe .left {
             width: 50%;
+            min-height: 300px;
         }
         #recipe .left img {
             width: 100%;
             height: auto;
-            object-fit: cover;
+            display: block;
             aspect-ratio: 350 / 197;
         }
         #recipe .right {
@@ -136,12 +147,11 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         @media (max-width: 768px) {
-            .herococinatradicional {
-                flex-direction: column-reverse;
-                align-items: center;
+            .container {
+                grid-template-columns: 1fr;
             }
-            .herococinatradicional .left, .herococinatradicional .right {
-                width: 100%;
+            .card {
+                width: 80%;
             }
             #recipe {
                 flex-direction: column;
@@ -149,6 +159,38 @@
             #recipe .left, #recipe .right {
                 width: 100%;
             }
+            .checkbtn {
+                display: block;
+                order: 1;
+                margin-right: 10px;
+            }
+            ul {
+                position: fixed;
+                top: 145px;
+                right: -100%;
+                background-color: rgb(255, 255, 255);
+                width: 100%;
+                height: 70vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.3s;
+                z-index: 10;
+            }
+            ul li {
+                margin: 20px 0;
+            }
+            ul li a {
+                font-size: x-large;
+            }
+            #check:checked ~ ul {
+                right: 0;
+            }
+            .container {
+        flex-direction: column;
+        align-items: center;
+    }
         }
     </style>
     <link rel="stylesheet" href="/styles/styles.css" media="print" onload="this.media='all'">
