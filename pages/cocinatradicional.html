@@ -17,180 +17,239 @@
             font-style: normal;
             font-display: swap;
         }
+        /* General Styles */
         body {
-            font-family: 'Sofia', 'Comic Sans MS';
+            font-family: 'Sofia', 'Comic Sans MS', cursive;
             margin: 0;
             padding: 0;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            background-color: #f9f9f9;
+            color: #171717;
         }
+        /* Top Navigation */
         .topnav {
             display: flex;
-            justify-content: flex-end;
-            padding: 20px;
-            padding-right: 50px;
-            background: #FF7A7A;
-            min-height: 60px;
+            justify-content: space-between;
             align-items: center;
+            padding: 10px 20px;
+            background-color: #FF7A7A;
+            color: #171717;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .topnav a, .topnav select {
             margin: 0 10px;
             text-decoration: none;
             color: #171717;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 20px;
+            background-color: #ffffff;
+            transition: background-color 0.3s;
+        }
+        .topnav a:hover, .topnav select:hover {
+            background-color: #ff2929;
+            color: #ffffff;
         }
         .topnav select {
-            width: 60px;
+            border: none;
+            outline: none;
+            cursor: pointer;
         }
+        /* Navigation Menu */
         nav {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
+            align-items: center;
+            padding: 10px 20px;
             background-color: #ffffff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         nav ul {
             display: flex;
-            justify-content:center;
-            align-items: center;
-            flex-grow: 1;
             list-style: none;
+            padding: 0;
             margin: 0;
-            padding: 20px;
-            min-height: 40px;
         }
         nav ul li {
-            margin-right: 40px;
+            margin-right: 20px;
         }
         nav ul li a {
             text-decoration: none;
             color: #ff2929;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #171717;
         }
         .checkbtn {
             display: none;
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
         }
-        .container, #recipe, #topics {
-            flex-grow: 1;
+        /* Hero Section */
+        .herococinatradicional {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+            gap: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
-        .container {
+        .herococinatradicional .left {
+            width: 50%;
+            padding: 20px;
+            text-align: justify;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #3d3bf3;
+        }
+        .herococinatradicional .right img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        /* Recipe Section */
+        #recipe {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+            gap: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        #recipe .left img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        #recipe .right {
+            width: 50%;
+            padding: 20px;
+            text-align: justify;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #3d3bf3;
+        }
+        #recipe .right a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #FF7A7A;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+        #recipe .right a:hover {
+            background-color: #cc2323;
+        }
+        /* Topics Section */
+        #topics {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             padding: 20px;
         }
-        .card {
-            background-color: #f9f9f9;
+        .topiccard {
+            background-color: #ffffff;
             border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin: 0px;
             padding: 20px;
-            width: 100%;
-            box-sizing: border-box;
             text-align: center;
-            min-height: 450px; /* Adjust based on image (197px) + text + padding */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .card img {
-            width: 100%;
-            height: auto;
+        .topiccard:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .topiccard img {
+            width: 100px;
+            height: 100px;
             object-fit: cover;
-            aspect-ratio: 350 / 197;
-            flex-shrink: 0;
+            border-radius: 50%;
+            margin-bottom: 15px;
         }
-        .card h2 {
-            font-size: 1.5em;
-            margin: 10px 0;
-            color: #3d3bf3;
-        }
-        .card p {
+        .topiccard p {
             font-size: 16px;
             line-height: 1.5;
-            margin: 10px 0;
             color: #3d3bf3;
+            margin: 10px 0;
         }
-        .card a {
-            color: #171717;
-            text-decoration: none;
+        .topiccard a {
+            display: inline-block;
+            padding: 10px 20px;
             background-color: #FF7A7A;
-            padding: 10px 30px;
+            color: #ffffff;
+            text-decoration: none;
             border-radius: 20px;
+            transition: background-color 0.3s;
         }
-        #recipe {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            padding: 40px;
+        .topiccard a:hover {
+            background-color: #cc2323;
         }
-        #recipe .left {
-            width: 50%;
-            min-height: 300px;
-        }
-        #recipe .left img {
-            width: 100%;
-            height: auto;
-            display: block;
-            aspect-ratio: 350 / 197;
-        }
-        #recipe .right {
-            width: 50%;
-            padding: 30px;
+        /* Footer */
+        footer {
+            background-color: #3d3bf3;
+            color: white;
+            padding: 20px;
             text-align: center;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+        .footer-content {
+            padding: 20px;
+        }
+        .footer-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .footer-content p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .footer-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .footer-content ul li a {
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        .footer-content ul li a:hover {
+            color: #ff2929;
+        }
+        .footer-bottom {
+            background-color: #2c2abf;
+            padding: 10px;
+            font-size: 14px;
+        }
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
+            .herococinatradicional, #recipe {
+                flex-direction: column;
+                text-align: center;
+            }
+            .herococinatradicional .left, #recipe .right {
+                width: 100%;
+            }
+            #topics {
                 grid-template-columns: 1fr;
             }
-            .card {
-                width: 80%;
-            }
-            #recipe {
-                flex-direction: column;
-            }
-            #recipe .left, #recipe .right {
-                width: 100%;
-            }
-            .checkbtn {
-                display: block;
-                order: 1;
-                margin-right: 10px;
-            }
-            ul {
-                position: fixed;
-                top: 145px;
-                right: -100%;
-                background-color: rgb(255, 255, 255);
-                width: 100%;
-                height: 70vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: all 0.3s;
-                z-index: 10;
-            }
-            ul li {
-                margin: 20px 0;
-            }
-            ul li a {
-                font-size: x-large;
-            }
-            #check:checked ~ ul {
-                right: 0;
-            }
-            .container {
-        flex-direction: column;
-        align-items: center;
-    }
         }
     </style>
     <link rel="stylesheet" href="/styles/styles.css" media="print" onload="this.media='all'">
