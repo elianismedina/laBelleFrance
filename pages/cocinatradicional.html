@@ -75,7 +75,9 @@
             text-align: center;
         }
         .container {
-            flex-grow: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             padding: 20px;
         }
         .herococinatradicional {
@@ -111,12 +113,40 @@
             object-fit: cover;
             aspect-ratio: 600 / 400;
         }
+        #recipe {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 40px;
+        }
+        #recipe .left {
+            width: 50%;
+        }
+        #recipe .left img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            aspect-ratio: 350 / 197;
+        }
+        #recipe .right {
+            width: 50%;
+            padding: 30px;
+            text-align: center;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
         @media (max-width: 768px) {
             .herococinatradicional {
                 flex-direction: column-reverse;
                 align-items: center;
             }
             .herococinatradicional .left, .herococinatradicional .right {
+                width: 100%;
+            }
+            #recipe {
+                flex-direction: column;
+            }
+            #recipe .left, #recipe .right {
                 width: 100%;
             }
         }
@@ -164,18 +194,12 @@
                 <p>La cocina tradicional francesa es conocida por su refinamiento y diversidad. Desde los famosos croissants hasta los sofisticados platos de alta cocina, Francia ha dejado una marca indeleble en la gastronomía mundial.</p>
             </div>
             <div class="right">
-                <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951891/frenchfood_o7xorm.webp" alt="Cocina tradicional"
-                width="600" height="400" 
-                style="object-fit: cover; width: 100%; height: auto;">
-                >
+                <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951891/frenchfood_o7xorm.webp" alt="Cocina tradicional">
             </div>
         </section>
         <section id="recipe">
             <div class="left">
-                <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951766/Rillete_rztihx.webp" 
-                     alt="Rillete de sardina"
-                     width="500" height="300"
-                     style="width: 100%; height: auto; object-fit: cover;">
+                <img src="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951766/Rillete_rztihx.webp" alt="Rillete de sardina">
             </div>
             <div class="right">
                 <p>Las 'rilletes' originales son francesas y se hacen con carne desmenuzada o en filamentos. En Francia está considerado un plato de charcutería. Se vende en tarrinas cubiertas por una película de grasa y, como untable que es, se consume en bocadillos o tostadas.</p>
