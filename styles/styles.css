@@ -519,6 +519,11 @@ span.psw {
         position: sticky;
         top: 0;
     }
+    .topnav a {
+        font-size: 12px;
+        padding: 10px;
+        margin: 0px;
+    }
     .topnav input[type=text] {
         display: none;
     }
