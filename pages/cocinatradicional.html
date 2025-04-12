@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="La Belle France Cocina Tradicional">
     <!-- Preload fonts -->
-    <link rel="preload" href="/fonts/Sofia-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Sofia-Regular-subset.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9FegI7aE.woff2" as="font" type="font/woff2" crossorigin>
     <!-- Preload logo and YouTube thumbnail -->
-    <link rel="preload" href="/images/LaBelleFrance.svg" as="image">
+    <link rel="preload" href="/images/La BelleFrance.svg" as="image">
     <link rel="preload" href="https://img.youtube.com/vi/DFiab-unMuY/hqdefault.jpg" as="image">
     <style>
         @font-face {
             font-family: 'Sofia';
-            src: url('/fonts/Sofia-Regular.woff2') format('woff2'),
+            src: url('/fonts/Sofia-Regular-subset.woff2') format('woff2'),
                  url('/fonts/Sofia-Regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
@@ -28,7 +28,7 @@
         }
         /* General Styles */
         body {
-            font-family: 'Sofia', 'Dancing Script', Georgia, cursive;
+            font-family: 'Sofia', 'Dancing Script', 'Times New Roman', cursive;
             margin: 0;
             padding: 0;
             min-height: 100vh;
@@ -49,7 +49,7 @@
             padding: 20px;
             box-sizing: border-box;
             min-height: 400px;
-            contain: layout; /* Isolate flexbox */
+            contain: layout;
         }
         aside {
             flex: 0 0 30%;
@@ -74,7 +74,8 @@
         aside article p {
             font-size: 16px;
             line-height: 1.6;
-            letter-spacing: 0.01em; /* Align font metrics */
+            letter-spacing: 0.01em;
+            font-size-adjust: 0.5; /* Normalize x-height */
             color: #3d3bf3;
             margin: 10px 0;
             text-align: justify;
@@ -83,10 +84,10 @@
             box-sizing: border-box;
             overflow: hidden;
             display: block;
-            contain: layout; /* Isolate text rendering */
+            contain: layout;
         }
         aside article p:first-of-type {
-            min-height: 140px; /* Extra space for first <p> */
+            height: 150px; /* Fixed height for first <p> */
         }
         /* YouTube Container */
         .youtube-container {
@@ -165,6 +166,7 @@
             top: 60px;
             z-index: 999;
             min-height: 120px;
+            contain: layout;
         }
         nav a.logo-link {
             display: block;
@@ -181,6 +183,7 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            min-height: 30px; /* Lock <ul> height */
         }
         nav ul li {
             margin-right: 40px;
@@ -189,7 +192,12 @@
             text-decoration: none;
             color: #AD0000;
             font-size: 20px;
+            line-height: 1.4; /* Match <p> for consistency */
+            letter-spacing: 0.01em;
+            font-size-adjust: 0.5;
             transition: color 0.3s;
+            display: inline-block;
+            min-height: 28px; /* Prevent reflow */
         }
         nav ul li a:hover {
             color: #171717;
@@ -426,7 +434,7 @@
         </div>
         <nav>
             <a href="/" class="logo-link" aria-label="Página principal de La Belle France">
-                <img src="/images/LaBelleFrance.svg" alt="Logo La Belle France" width="100" height="100">
+                <img src="/images/La BelleFrance.svg" alt="Logo La Belle France" width="100" height="100">
             </a>
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn">
@@ -453,7 +461,7 @@
                     La cocina tradicional francesa es una piedra angular de la gastronomía mundial, celebrada por su elegancia, diversidad e historia profundamente arraigada. Desde el encanto rústico de los platos regionales hasta las refinadas técnicas de la alta cocina, la comida francesa refleja una pasión por los ingredientes de calidad y los métodos tradicionales.
                 </p>
                 <p>
-                    En esencia, la cocina francesa prioriza el equilibrio: piense en el contundente cassoulet del sur, un guiso de judías, pato y salchicha cocinado a fuego lento, o en la delicada sencillez de un coq au vin, un pollo braseado en vino tinto con champiñones y cebolla. Las regiones costeras ofrecen tesoros como la bullabesa, un aromático guiso de pescado marsellés, mientras que Normandía ofrece quesos cremosos y delicias a base de manzana como la tarta tatin. El pan y la repostería, desde las crujientes baguettes hasta los cruasanes con mantequilla, son productos básicos indispensables, a menudo acompañados de queso artesanal o paté.
+                    En esencia, la cocina francesa prioriza el equilibrio: piense en el contundente cassoulet del sur, un guiso de judías, pato y salchicha cocinado a fogo lento, o en la delicada sencillez de un coq au vin, un pollo braseado en vino tinto con champiñones y cebolla. Las regiones costeras ofrecen tesoros como la bullabesa, un aromático guiso de pescado marsellés, mientras que Normandía ofrece quesos cremosos y delicias a base de manzana como la tarta tatin. El pan y la repostería, desde las crujientes baguettes hasta los cruasanes con mantequilla, son productos básicos indispensables, a menudo acompañados de queso artesanal o paté.
                 </p>
                 <p>
                     Lo que distingue a la cocina francesa es su respeto por la estacionalidad y el terroir: la idea de que los ingredientes saben mejor cuando se obtienen localmente y se preparan con esmero. Las comidas son un ritual, pensadas para saborearlas lentamente con buen vino y en la mejor compañía. Esta filosofía le ha valido a la gastronomía francesa un lugar en la lista del Patrimonio Cultural Inmaterial de la UNESCO.
