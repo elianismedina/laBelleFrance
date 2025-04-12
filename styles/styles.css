@@ -287,12 +287,12 @@ ul li a:hover {
 }
 form input[type=text], input[type=password] {
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    padding: 12px 12px;
+    margin: 4px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 label {
     color: white;
@@ -379,10 +379,10 @@ img.avatar {
 }
 span.psw {
     float: right;
-    padding-top: 16px;
+    padding-top: 4px;
 }
 .psw {
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
     color: #ffffff;
 }
