@@ -27,7 +27,6 @@ body {
     max-width: 50%;
     margin: auto;
     padding: 20px;
-    margin-top:20px;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#b3a6d6), to(#2d1e83));
 }
 header {
