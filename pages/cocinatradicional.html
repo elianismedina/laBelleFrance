@@ -4,23 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="La Belle France Cocina Tradicional">
-    <!-- Preload the local font -->
+    <!-- Preload fonts -->
     <link rel="preload" href="/fonts/Sofia-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preconnect" href="https://www.youtube-nocookie.com">
-<link rel="preconnect" href="https://www.googletagmanager.com">
-    <!-- Inline critical CSS -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9FegI7aE.ttf" as="font" type="font/ttf" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
+    <!-- Remove YouTube and GTM preconnect -->
     <style>
         @font-face {
             font-family: 'Sofia';
             src: url('/fonts/Sofia-Regular.woff2') format('woff2'),
-                url('/fonts/Sofia-Regular.ttf') format('truetype');
+                 url('/fonts/Sofia-Regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
         }
         /* General Styles */
         body {
-            font-family: 'Sofia', cursive;
+            font-family: 'Sofia', 'Dancing Script', cursive;
             margin: 0;
             padding: 0;
             min-height: 100vh;
@@ -28,66 +28,90 @@
             flex-direction: column;
             background-color: #f9f9f9;
             color: #171717;
+            font-size: 16px;
+            line-height: 1.5;
+            text-rendering: optimizeLegibility;
+            overflow-wrap: break-word;
         }
-        aside{
+        /* Main Container */
+        .main-container {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            min-height: 400px;
+        }
+        aside {
             width: 30%;
+            min-width: 300px;
             padding: 40px;
-            float: right;
-            font-style: italic;
             background-color: #FF7A7A;
-            height:auto
+            height: auto;
+            box-sizing: border-box;
+            min-height: 500px;
         }
-        aside article{
+        aside article {
             background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            line-height: 1.6;
+            min-height: 400px;
         }
-        aside article p{
+        aside article p {
             font-size: 16px;
             line-height: 1.6;
             color: #3d3bf3;
             margin: 10px 0;
             text-align: justify;
+            min-height: 100px; /* Approx 5 lines */
+            width: 100%;
         }
+        /* YouTube Container */
         .youtube-container {
             position: relative;
-            padding-bottom: 52.94%; /* 180/340 */
+            padding-bottom: 52.94%;
             height: 0;
             overflow: hidden;
             min-height: 180px;
             width: 100%;
             max-width: 340px;
-          }
-          
-          .youtube-container .youtube-placeholder {
+        }
+        .youtube-container .youtube-placeholder {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: #eee url('https://img.youtube.com/vi/DFiab-unMuY/hqdefault.jpg') center/cover no-repeat;
-          }
-          
-          .youtube-container iframe {
+        }
+        .youtube-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-          }
-        
+        }
+        /* Image Stability */
+        img {
+            aspect-ratio: attr(width) / attr(height);
+            max-width: 100%;
+            height: auto;
+        }
         /* Top Navigation */
         .topnav {
-            position: sticky;
-            top: 0;
-            z-index: 1000; /* High z-index to ensure it stays on top */
-            background-color: #FF7A7A;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
+            background-color: #FF7A7A;
             color: #171717;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            min-height: 60px;
         }
         .topnav a, .topnav select {
             margin: 0 10px;
@@ -110,15 +134,15 @@
         }
         /* Navigation Menu */
         nav {
-            position: sticky;
-            top: 55px; /* Adjust based on the height of the topnav */
-            z-index: 999; /* Slightly lower than topnav but above other content */
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 60px;
+            z-index: 999;
         }
         nav ul {
             display: flex;
@@ -152,6 +176,7 @@
             background-color: #ffffff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
+            min-height: 300px;
         }
         .herococinatradicional .left {
             width: 50%;
@@ -160,6 +185,7 @@
             font-size: 18px;
             line-height: 1.6;
             color: #3d3bf3;
+            min-height: 100px;
         }
         .herococinatradicional .right img {
             width: 100%;
@@ -178,6 +204,7 @@
             background-color: #ffffff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
+            min-height: 300px;
         }
         #recipe .left img {
             width: 100%;
@@ -192,6 +219,7 @@
             font-size: 18px;
             line-height: 1.6;
             color: #3d3bf3;
+            min-height: 100px;
         }
         #recipe .right a {
             display: inline-block;
@@ -221,6 +249,7 @@
             padding: 20px;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
+            min-height: 250px;
         }
         .topiccard:hover {
             transform: translateY(-10px);
@@ -232,6 +261,7 @@
             object-fit: cover;
             border-radius: 50%;
             margin-bottom: 15px;
+            aspect-ratio: 1/1;
         }
         .topiccard p {
             font-size: 16px;
@@ -251,12 +281,31 @@
         .topiccard a:hover {
             background-color: #cc2323;
         }
+        /* Main Content */
+        main .content > div {
+            min-height: 200px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        main .content > div h1 {
+            font-size: 24px;
+            margin: 0 0 10px;
+            min-height: 30px;
+        }
+        main .content > div p {
+            font-size: 16px;
+            line-height: 1.6;
+            min-height: 80px;
+        }
         /* Footer */
         footer {
             background-color: #3d3bf3;
             color: white;
             padding: 20px;
             text-align: center;
+            margin-top: auto;
         }
         .footer-content {
             padding: 20px;
@@ -292,27 +341,27 @@
         }
         /* Responsive Design */
         @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                min-height: auto;
+            }
+            aside {
+                display: none;
+            }
+            main .content {
+                width: 100%;
+            }
             .herococinatradicional, #recipe {
                 flex-direction: column;
                 text-align: center;
             }
             .herococinatradicional .left, #recipe .right {
                 width: 100%;
+                min-height: auto;
             }
             #topics {
                 grid-template-columns: 1fr;
             }
-            aside{
-                display: none;
-            }
-        }
-        .main-container {
-            min-height: 100vh; /* Reserve space for the main content */
-            padding: 20px;
-        }
-        p {
-            line-height: 1.6;
-            min-height: 3em; /* Reserve space for at least 3 lines of text */
         }
     </style>
     <link rel="stylesheet" href="/styles/styles.css" media="print" onload="this.media='all'">
@@ -322,45 +371,6 @@
     <title>Cocina Tradicional</title>
 </head>
 <body>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const containers = document.querySelectorAll(".youtube-container[data-video-id]");
-          if ("IntersectionObserver" in window) {
-            const observer = new IntersectionObserver(
-              (entries, observer) => {
-                entries.forEach(entry => {
-                  if (entry.isIntersecting) {
-                    const container = entry.target;
-                    const videoId = container.getAttribute("data-video-id");
-                    // Create iframe dynamically
-                    const iframe = document.createElement("iframe");
-                    iframe.setAttribute("width", "340");
-                    iframe.setAttribute("height", "180");
-                    iframe.setAttribute("src", `https://www.youtube-nocookie.com/embed/${videoId}`);
-                    iframe.setAttribute("title", "Cocina Tradicional Francesa");
-                    iframe.setAttribute("frameborder", "0");
-                    iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
-                    iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
-                    iframe.setAttribute("allowfullscreen", "");
-                    // Replace placeholder with iframe
-                    container.innerHTML = "";
-                    container.appendChild(iframe);
-                    observer.unobserve(container);
-                  }
-                });
-              },
-              { rootMargin: "200px" } // Load 200px before visible
-            );
-            containers.forEach(container => observer.observe(container));
-          } else {
-            // Fallback: Load iframe immediately
-            containers.forEach(container => {
-              const videoId = container.getAttribute("data-video-id");
-              container.innerHTML = `<iframe width="340" height="180" src="https://www.youtube-nocookie.com/embed/${videoId}" title="Cocina Tradicional Francesa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
-            });
-          }
-        });
-      </script>
     <header>
         <div class="topnav">
             <a href="./login.html">INICIAR SESIÓN</a>
@@ -374,7 +384,7 @@
         </div>
         <nav>
             <a href="/">
-                <img src="/images/LaBelleFrance.svg" alt="Logo La Belle France" width="100" height="100">
+                <img src="/images/La BelleFrance.svg" alt="Logo La Belle France" width="100" height="100">
             </a>
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn">
@@ -395,41 +405,43 @@
         <aside>
             <article>
                 <div class="youtube-container" data-video-id="DFiab-unMuY">
-  <div class="youtube-placeholder"></div>
-</div>
+                    <div class="youtube-placeholder"></div>
+                </div>
                 <p>
                     La cocina tradicional francesa es una piedra angular de la gastronomía mundial, celebrada por su elegancia, diversidad e historia profundamente arraigada. Desde el encanto rústico de los platos regionales hasta las refinadas técnicas de la alta cocina, la comida francesa refleja una pasión por los ingredientes de calidad y los métodos tradicionales.
-
                 </p>
                 <p>
                     En esencia, la cocina francesa prioriza el equilibrio: piense en el contundente cassoulet del sur, un guiso de judías, pato y salchicha cocinado a fuego lento, o en la delicada sencillez de un coq au vin, un pollo braseado en vino tinto con champiñones y cebolla. Las regiones costeras ofrecen tesoros como la bullabesa, un aromático guiso de pescado marsellés, mientras que Normandía ofrece quesos cremosos y delicias a base de manzana como la tarta tatin. El pan y la repostería, desde las crujientes baguettes hasta los cruasanes con mantequilla, son productos básicos indispensables, a menudo acompañados de queso artesanal o paté.
                 </p>
-                <p>Lo que distingue a la cocina francesa es su respeto por la estacionalidad y el terroir: la idea de que los ingredientes saben mejor cuando se obtienen localmente y se preparan con esmero. Las comidas son un ritual, pensadas para saborearlas lentamente con buen vino y en la mejor compañía. Esta filosofía le ha valido a la gastronomía francesa un lugar en la lista del Patrimonio Cultural Inmaterial de la UNESCO.
+                <p>
+                    Lo que distingue a la cocina francesa es su respeto por la estacionalidad y el terroir: la idea de que los ingredientes saben mejor cuando se obtienen localmente y se preparan con esmero. Las comidas son un ritual, pensadas para saborearlas lentamente con buen vino y en la mejor compañía. Esta filosofía le ha valido a la gastronomía francesa un lugar en la lista del Patrimonio Cultural Inmaterial de la UNESCO.
                 </p>
                 <p>
                     Para adentrarse en este mundo, vea este video de YouTube que muestra el arte de preparar un plato clásico francés. Tanto si cocina en casa como si es un gourmet curioso, la cocina tradicional francesa le invita a relajarse y saborear la historia en cada bocado.
                 </p>
             </article>
         </aside>
-        <div>
-            <h1>Cocina tradicional</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
-        </div>
-        <div>
-            <h1>Cocina tradicional</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
-        </div>
-        <div>
-            <h1>Cocina tradicional</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
-        </div>
-        <div>
-            <h1>Cocina tradicional</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
-        </div>
-        <div>
-            <h1>Cocina tradicional</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
+        <div class="content">
+            <div>
+                <h1>Cocina tradicional</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
+            </div>
+            <div>
+                <h1>Cocina tradicional</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
+            </div>
+            <div>
+                <h1>Cocina tradicional</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
+            </div>
+            <div>
+                <h1>Cocina tradicional</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
+            </div>
+            <div>
+                <h1>Cocina tradicional</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
+            </div>
         </div>
     </main>
     <footer>
@@ -444,8 +456,44 @@
             </ul>
         </div>
         <div class="footer-bottom">
-            &copy; La Belle France | Todos los derechos reservados | Designed by <a href="#">Elianis Medina</a>
+            © La Belle France | Todos los derechos reservados | Designed by <a href="#">Elianis Medina</a>
         </div>
     </footer>
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            const containers = document.querySelectorAll(".youtube-container[data-video-id]");
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver(
+                    (entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const container = entry.target;
+                                const videoId = container.getAttribute("data-video-id");
+                                const iframe = document.createElement("iframe");
+                                iframe.setAttribute("width", "340");
+                                iframe.setAttribute("height", "180");
+                                iframe.setAttribute("src", `https://www.youtube-nocookie.com/embed/${videoId}?rel=0`);
+                                iframe.setAttribute("title", "Cocina Tradicional Francesa");
+                                iframe.setAttribute("frameborder", "0");
+                                iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+                                iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+                                iframe.setAttribute("allowfullscreen", "");
+                                container.innerHTML = "";
+                                container.appendChild(iframe);
+                                observer.unobserve(container);
+                            }
+                        });
+                    },
+                    { rootMargin: "300px", threshold: 0.1 } // Stricter trigger
+                );
+                containers.forEach(container => observer.observe(container));
+            } else {
+                containers.forEach(container => {
+                    const videoId = container.getAttribute("data-video-id");
+                    container.innerHTML = `<iframe width="340" height="180" src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0" title="Cocina Tradicional Francesa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+                });
+            }
+        });
+    </script>
 </body>
 </html>
