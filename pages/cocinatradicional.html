@@ -52,6 +52,7 @@
         aside {
             width: 30%;
             min-width: 300px;
+            max-width: 400px; /* Constrain to prevent resizing */
             padding: 40px;
             background-color: #FF7A7A;
             height: auto;
@@ -66,6 +67,7 @@
             font-size: 16px;
             line-height: 1.6;
             min-height: 400px;
+            box-sizing: border-box;
         }
         aside article p {
             font-size: 16px;
@@ -75,6 +77,9 @@
             text-align: justify;
             min-height: 120px;
             width: 100%;
+            padding: 10px; /* Stabilize text block */
+            box-sizing: border-box;
+            overflow: hidden; /* Prevent overflow shifts */
         }
         /* YouTube Container */
         .youtube-container {
@@ -85,6 +90,7 @@
             min-height: 180px;
             width: 100%;
             max-width: 340px;
+            background-color: #eee; /* Fallback color */
         }
         .youtube-container .youtube-placeholder {
             position: absolute;
@@ -418,7 +424,7 @@
                 </svg>
             </label>
             <ul>
-                <li><a href="./cocinatradicional.html">Cocina tradicional</a></li>
+                <li><a href="./cocinatradicional.html">Cocina tradicional</li>
                 <li><a href="./pasteleria.html">Pastelería</a></li>
                 <li><a href="./quesosyvinos.html">Quesos y vinos</a></li>
                 <li><a href="./restaurantes.html">Restaurantes</a></li>
@@ -517,7 +523,7 @@
                     containers.forEach(container => {
                         const videoId = container.getAttribute("data-video-id");
                         container.innerHTML = `<iframe width="340" height="180" src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0" title="Cocina Tradicional Francesa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
-                    });
+ quedar                    });
                 }
             }, 100);
         });
