@@ -8,7 +8,8 @@
     <link rel="preload" href="/fonts/Sofia-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9FegI7aE.ttf" as="font" type="font/ttf" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
-    <!-- Remove YouTube and GTM preconnect -->
+    <!-- Preload logo -->
+    <link rel="preload" href="/images/La BelleFrance.svg" as="image">
     <style>
         @font-face {
             font-family: 'Sofia';
@@ -66,7 +67,7 @@
             color: #3d3bf3;
             margin: 10px 0;
             text-align: justify;
-            min-height: 100px; /* Approx 5 lines */
+            min-height: 120px; /* Increased for longer paragraphs */
             width: 100%;
         }
         /* YouTube Container */
@@ -99,6 +100,7 @@
             aspect-ratio: attr(width) / attr(height);
             max-width: 100%;
             height: auto;
+            display: block; /* Prevent inline spacing */
         }
         /* Top Navigation */
         .topnav {
@@ -143,6 +145,17 @@
             position: sticky;
             top: 60px;
             z-index: 999;
+            min-height: 120px; /* Reserve space for logo and menu */
+        }
+        nav a.logo-link {
+            display: block;
+            width: 100px;
+            height: 100px;
+        }
+        nav a.logo-link img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         nav ul {
             display: flex;
@@ -163,6 +176,9 @@
             color: #171717;
         }
         .checkbtn {
+            display: none;
+        }
+        #check {
             display: none;
         }
         /* Hero Section */
@@ -362,6 +378,9 @@
             #topics {
                 grid-template-columns: 1fr;
             }
+            nav {
+                min-height: 100px;
+            }
         }
     </style>
     <link rel="stylesheet" href="/styles/styles.css" media="print" onload="this.media='all'">
@@ -383,8 +402,8 @@
             </select>
         </div>
         <nav>
-            <a href="/">
-                <img src="/images/LaBelleFrance.svg" alt="Logo La Belle France" width="100" height="100">
+            <a href="/" class="logo-link">
+                <img src="/images/La BelleFrance.svg" alt="Logo La Belle France" width="100" height="100">
             </a>
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn">
@@ -484,7 +503,7 @@
                             }
                         });
                     },
-                    { rootMargin: "300px", threshold: 0.1 } // Stricter trigger
+                    { rootMargin: "300px", threshold: 0.1 }
                 );
                 containers.forEach(container => observer.observe(container));
             } else {
