@@ -27,6 +27,27 @@
           background-color: #f9f9f9;
           color: #171717;
       }
+      aside{
+        width: 30%;
+        padding: 40px;
+        float: right;
+        font-style: italic;
+        background-color: #FF7A7A;
+        height:auto
+        }
+        aside article{
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        aside article p{
+            font-size: 16px;
+            line-height: 1.6;
+            color: #3d3bf3;
+            margin: 10px 0;
+            text-align: justify;
+        }
       /* Top Navigation */
       .topnav {
           display: flex;
@@ -249,6 +270,9 @@
           #topics {
               grid-template-columns: 1fr;
           }
+          aside{
+            display: none;
+          }
       }
   </style>
   <link rel="stylesheet" href="/styles/styles.css" media="print" onload="this.media='all'">
@@ -289,6 +313,15 @@
     </nav>
 </header>
 <main>
+    <aside>
+        <article>
+            <iframe width="340" height="180" src="https://www.youtube.com/embed/fcmMoxxHkDI?si=x9TqC_tVZ1skwJi-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p>Los restaurantes tradicionales franceses son el alma del patrimonio gastronómico francés, ofreciendo una cálida bienvenida a la historia, el sabor y la cordialidad. Desde pintorescos bistrós en callejones parisinos hasta rústicos albergues en la campiña, estos establecimientos son guardianes de la tradición culinaria, donde el tiempo parece detenerse y cada plato cuenta una historia.</p>
+            <p>En un restaurante francés clásico, encontrará platos emblemáticos como el boeuf bourguignon, un tierno estofado de ternera cocinado a fuego lento en vino tinto, o caracoles bañados en mantequilla de ajo, que demuestran la riqueza de las recetas regionales. Los ingredientes frescos de temporada son primordiales, ya sea un pato asado de la Dordoña en su punto justo o una delicada soupe à l'oignon coronada con queso burbujeante. Postres como la crème brûlée, con su crujiente corteza de caramelo, redondean las comidas con un toque de lujo.</p>
+            <p>El ambiente es igual de vital: manteles a cuadros, velas titilantes y animadas charlas con copas de vino local. Estos restaurantes no se centran solo en la comida; se centran en la conexión, celebrando los momentos grandes y pequeños de la vida. Empapados de tradición, pero siempre acogedores, invitan a los comensales a quedarse y saborear.</p>
+            <p>Para descubrir este mundo, vea este video de YouTube que muestra el corazón de un bistró francés tradicional. Entra en uno y saborearás la esencia de Francia.</p>
+        </article>
+    </aside>
     <div>
         <h1>Restaurantes</h1>
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
