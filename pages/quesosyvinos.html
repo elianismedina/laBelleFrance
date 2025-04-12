@@ -27,6 +27,27 @@
           background-color: #f9f9f9;
           color: #171717;
       }
+      aside{
+        width: 30%;
+        padding: 40px;
+        float: right;
+        font-style: italic;
+        background-color: #FF7A7A;
+        height:auto
+        }
+        aside article{
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        aside article p{
+            font-size: 16px;
+            line-height: 1.6;
+            color: #3d3bf3;
+            margin: 10px 0;
+            text-align: justify;
+        }
       /* Top Navigation */
       .topnav {
           display: flex;
@@ -250,6 +271,9 @@
           #topics {
               grid-template-columns: 1fr;
           }
+          aside{
+            display: none;
+          }
       }
   </style>
   <link rel="stylesheet" href="/styles/styles.css" media="print" onload="this.media='all'">
@@ -290,6 +314,15 @@
     </nav>
 </header>
 <main>
+    <aside>
+        <article>
+            <iframe width="340" height="180" src="https://www.youtube.com/embed/h-ubgwdFA0E?si=YQgMrOnxBLFV4L_d" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p>En Francia, el vino y el queso son más que un maridaje: son una forma de vida, intrínseca a su gastronomía. Esta preciada tradición celebra el arte de disfrutar de sabores complementarios, donde cada sorbo de vino y cada bocado de queso narran una historia de terroir, artesanía y herencia.</p>
+            <p>Francia presume de más de 400 quesos, desde el cremoso y penetrante Camembert de Normandía hasta el sabroso Comté de las montañas del Jura. El queso de cada región refleja su paisaje, ya sean los ácidos quesos de cabra del Valle del Loira o el intenso Roquefort, madurado en cuevas del sur. De igual manera, los vinos franceses —pensemos en los robustos tintos de Burdeos, las efervescentes burbujas del champán o los frescos blancos de Chablis— se elaboran con una experiencia centenaria, representando la tierra y el clima de sus orígenes.</p>
+            <p>La magia reside en el maridaje: un Pinot Noir sedoso realza un Brie suave, mientras que un Sancerre fresco contrasta con el sabor ácido del Chèvre. Estas combinaciones, a menudo disfrutadas lentamente con pan crujiente, convierten las comidas en momentos de conexión y alegría. Con raíces en la convivencia, esta tradición es un testimonio del amor de los franceses por los placeres sencillos de la vida.</p>
+            <p>Para descubrir este mundo, vea este video de YouTube que explora el arte del maridaje de vinos y quesos franceses. Brinde, corte un poco de queso y brinde por una tradición que es pura poesía para el paladar.</p>
+        </article>
+    </aside>
     <div>
         <h1>Quesos y vinos</h1>
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
