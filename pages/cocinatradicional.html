@@ -6,10 +6,10 @@
     <meta name="description" content="La Belle France Cocina Tradicional">
     <!-- Preload fonts -->
     <link rel="preload" href="/fonts/Sofia-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9FegI7aE.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9FegI7aE.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
     <!-- Preload logo -->
-    <link rel="preload" href="/images/La BelleFrance.svg" as="image">
+    <link rel="preload" href="/images/LaBelleFrance.svg" as="image">
     <style>
         @font-face {
             font-family: 'Sofia';
@@ -67,7 +67,7 @@
             color: #3d3bf3;
             margin: 10px 0;
             text-align: justify;
-            min-height: 120px; /* Increased for longer paragraphs */
+            min-height: 120px;
             width: 100%;
         }
         /* YouTube Container */
@@ -100,7 +100,7 @@
             aspect-ratio: attr(width) / attr(height);
             max-width: 100%;
             height: auto;
-            display: block; /* Prevent inline spacing */
+            display: block;
         }
         /* Top Navigation */
         .topnav {
@@ -145,7 +145,7 @@
             position: sticky;
             top: 60px;
             z-index: 999;
-            min-height: 120px; /* Reserve space for logo and menu */
+            min-height: 120px;
         }
         nav a.logo-link {
             display: block;
@@ -480,38 +480,41 @@
     </footer>
     <script defer>
         document.addEventListener("DOMContentLoaded", () => {
-            const containers = document.querySelectorAll(".youtube-container[data-video-id]");
-            if ("IntersectionObserver" in window) {
-                const observer = new IntersectionObserver(
-                    (entries, observer) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                const container = entry.target;
-                                const videoId = container.getAttribute("data-video-id");
-                                const iframe = document.createElement("iframe");
-                                iframe.setAttribute("width", "340");
-                                iframe.setAttribute("height", "180");
-                                iframe.setAttribute("src", `https://www.youtube-nocookie.com/embed/${videoId}?rel=0`);
-                                iframe.setAttribute("title", "Cocina Tradicional Francesa");
-                                iframe.setAttribute("frameborder", "0");
-                                iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
-                                iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
-                                iframe.setAttribute("allowfullscreen", "");
-                                container.innerHTML = "";
-                                container.appendChild(iframe);
-                                observer.unobserve(container);
-                            }
-                        });
-                    },
-                    { rootMargin: "300px", threshold: 0.1 }
-                );
-                containers.forEach(container => observer.observe(container));
-            } else {
-                containers.forEach(container => {
-                    const videoId = container.getAttribute("data-video-id");
-                    container.innerHTML = `<iframe width="340" height="180" src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0" title="Cocina Tradicional Francesa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
-                });
-            }
+            // Delay observer setup to ensure DOM stability
+            setTimeout(() => {
+                const containers = document.querySelectorAll(".youtube-container[data-video-id]");
+                if ("IntersectionObserver" in window) {
+                    const observer = new IntersectionObserver(
+                        (entries, observer) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    const container = entry.target;
+                                    const videoId = container.getAttribute("data-video-id");
+                                    const iframe = document.createElement("iframe");
+                                    iframe.setAttribute("width", "340");
+                                    iframe.setAttribute("height", "180");
+                                    iframe.setAttribute("src", `https://www.youtube-nocookie.com/embed/${videoId}?rel=0`);
+                                    iframe.setAttribute("title", "Cocina Tradicional Francesa");
+                                    iframe.setAttribute("frameborder", "0");
+                                    iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+                                    iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+                                    iframe.setAttribute("allowfullscreen", "");
+                                    container.innerHTML = "";
+                                    container.appendChild(iframe);
+                                    observer.unobserve(container);
+                                }
+                            });
+                        },
+                        { rootMargin: "100px", threshold: 0.2 } // Tighter trigger
+                    );
+                    containers.forEach(container => observer.observe(container));
+                } else {
+                    containers.forEach(container => {
+                        const videoId = container.getAttribute("data-video-id");
+                        container.innerHTML = `<iframe width="340" height="180" src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0" title="Cocina Tradicional Francesa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+                    });
+                }
+            }, 100); // 100ms delay
         });
     </script>
 </body>
