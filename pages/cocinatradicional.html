@@ -62,8 +62,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1; /* Lower z-index to ensure it doesn't overlap */
-            border: none; /* Ensure no border is applied */
+            border: none;
           }
         
         /* Top Navigation */
@@ -294,6 +293,14 @@
             aside{
                 display: none;
             }
+        }
+        .main-container {
+            min-height: 100vh; /* Reserve space for the main content */
+            padding: 20px;
+        }
+        p {
+            line-height: 1.6;
+            min-height: 3em; /* Reserve space for at least 3 lines of text */
         }
     </style>
     <link rel="stylesheet" href="/styles/styles.css" media="print" onload="this.media='all'">
