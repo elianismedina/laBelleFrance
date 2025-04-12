@@ -6,21 +6,7 @@
     <meta name="description" content="La Belle France Cocina Tradicional">
     <!-- Preload the local font -->
     <link rel="preload" href="/fonts/Sofia-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const iframes = document.querySelectorAll("iframe[data-src]");
-          const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                const iframe = entry.target;
-                iframe.src = iframe.getAttribute("data-src");
-                observer.unobserve(iframe);
-              }
-            });
-          }, { rootMargin: "100px" }); // Load slightly before visible
-          iframes.forEach(iframe => observer.observe(iframe));
-        });
-      </script>
+    
     <!-- Inline critical CSS -->
     <style>
         @font-face {
@@ -311,6 +297,33 @@
     <title>Cocina Tradicional</title>
 </head>
 <body>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const iframes = document.querySelectorAll("iframe[data-src]");
+          if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver(
+              (entries, observer) => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                    const iframe = entry.target;
+                    iframe.src = iframe.getAttribute("data-src");
+                    iframe.removeAttribute("data-src");
+                    observer.unobserve(iframe);
+                  }
+                });
+              },
+              { rootMargin: "200px" } // Load 200px before visible
+            );
+            iframes.forEach(iframe => observer.observe(iframe));
+          } else {
+            // Fallback for older browsers
+            iframes.forEach(iframe => {
+              iframe.src = iframe.getAttribute("data-src");
+              iframe.removeAttribute("data-src");
+            });
+          }
+        });
+      </script>
     <header>
         <div class="topnav">
             <a href="./login.html">INICIAR SESIÓN</a>
