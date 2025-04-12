@@ -1,89 +1,330 @@
 <!DOCTYPE html>
 <html lang="es">
  <head>
-        <meta charset="utf-8">
-        <meta name="viewport" 
-              content="width=device-width,initial-scale=1.0">
-        <meta name="La Belle France Cocina Callejera" content="La Belle France Cocina Callejera, se abordan las presentaciones de cómida callejera más destacadas en la gastronomía francesa">
-        <link rel="stylesheet" href=
-    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-    <link rel="stylesheet" href="/styles/styles.css">
-        <title>Comida callejera</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="La Belle France - Comida Callejera">
+  <!-- Preload the local font -->
+  <link rel="preload" href="/fonts/Sofia-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Inline critical CSS -->
+  <style>
+      @font-face {
+          font-family: 'Sofia';
+          src: url('/fonts/Sofia-Regular.woff2') format('woff2'),
+              url('/fonts/Sofia-Regular.ttf') format('truetype');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+      }
+      /* General Styles */
+      body {
+          font-family: 'Sofia', cursive;
+          margin: 0;
+          padding: 0;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          background-color: #f9f9f9;
+          color: #171717;
+      }
+      /* Top Navigation */
+      .topnav {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 20px;
+          background-color: #FF7A7A;
+          color: #171717;
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+      }
+      .topnav a, .topnav select {
+          margin: 0 10px;
+          text-decoration: none;
+          color: #171717;
+          font-size: 14px;
+          padding: 8px 12px;
+          border-radius: 20px;
+          background-color: #ffffff;
+          transition: background-color 0.3s;
+      }
+      .topnav a:hover, .topnav select:hover {
+          background-color: #ff2929;
+          color: #ffffff;
+      }
+      .topnav select {
+          border: none;
+          outline: none;
+          cursor: pointer;
+      }
+      /* Navigation Menu */
+      nav {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 20px;
+          background-color: #ffffff;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      nav ul {
+          display: flex;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+      }
+      nav ul li {
+          margin-right: 20px;
+      }
+      nav ul li a {
+          text-decoration: none;
+          color: #ff2929;
+          font-size: 16px;
+          transition: color 0.3s;
+      }
+      nav ul li a:hover {
+          color: #171717;
+      }
+      .checkbtn {
+          display: none;
+      }
+      /* Hero Section */
+      .herococinatradicional {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding: 40px;
+          gap: 20px;
+          background-color: #ffffff;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          margin-bottom: 20px;
+      }
+      .herococinatradicional .left {
+          width: 50%;
+          padding: 20px;
+          text-align: justify;
+          font-size: 18px;
+          line-height: 1.6;
+          color: #3d3bf3;
+      }
+      .herococinatradicional .right img {
+          width: 100%;
+          height: auto;
+          border-radius: 10px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      /* Recipe Section */
+      #recipe {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding: 40px;
+          gap: 20px;
+          background-color: #ffffff;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          margin-bottom: 20px;
+      }
+      #recipe .left img {
+          width: 100%;
+          height: auto;
+          border-radius: 10px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      #recipe .right {
+          width: 50%;
+          padding: 20px;
+          text-align: justify;
+          font-size: 18px;
+          line-height: 1.6;
+          color: #3d3bf3;
+      }
+      #recipe .right a {
+          display: inline-block;
+          margin-top: 20px;
+          padding: 10px 20px;
+          background-color: #FF7A7A;
+          color: #ffffff;
+          text-decoration: none;
+          border-radius: 20px;
+          transition: background-color 0.3s;
+      }
+      #recipe .right a:hover {
+          background-color: #cc2323;
+      }
+      /* Topics Section */
+      #topics {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 20px;
+          padding: 20px;
+      }
+      .topiccard {
+          background-color: #ffffff;
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          text-align: center;
+          transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .topiccard:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      .topiccard img {
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+          border-radius: 50%;
+          margin-bottom: 15px;
+      }
+      .topiccard p {
+          font-size: 16px;
+          line-height: 1.5;
+          color: #3d3bf3;
+          margin: 10px 0;
+      }
+      .topiccard a {
+          display: inline-block;
+          padding: 10px 20px;
+          background-color: #FF7A7A;
+          color: #ffffff;
+          text-decoration: none;
+          border-radius: 20px;
+          transition: background-color 0.3s;
+      }
+      .topiccard a:hover {
+          background-color: #cc2323;
+      }
+      /* Footer */
+      footer {
+          background-color: #3d3bf3;
+          color: white;
+          padding: 20px;
+          text-align: center;
+      }
+      .footer-content {
+          padding: 20px;
+      }
+      .footer-content h3 {
+          font-size: 24px;
+          margin-bottom: 10px;
+      }
+      .footer-content p {
+          font-size: 16px;
+          line-height: 1.5;
+      }
+      .footer-content ul {
+          list-style: none;
+          padding: 0;
+          margin: 20px 0;
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+      }
+      .footer-content ul li a {
+          color: white;
+          font-size: 20px;
+          transition: color 0.3s;
+      }
+      .footer-content ul li a:hover {
+          color: #ff2929;
+      }
+      .footer-bottom {
+          background-color: #2c2abf;
+          padding: 10px;
+          font-size: 14px;
+      }
+      /* Responsive Design */
+      @media (max-width: 768px) {
+          .herococinatradicional, #recipe {
+              flex-direction: column;
+              text-align: center;
+          }
+          .herococinatradicional .left, #recipe .right {
+              width: 100%;
+          }
+          #topics {
+              grid-template-columns: 1fr;
+          }
+      }
+  </style>
+  <link rel="stylesheet" href="/styles/styles.css" media="print" onload="this.media='all'">
+  <noscript>
+      <link rel="stylesheet" href="/styles/styles.css">
+  </noscript>
+  <title>Comida callejera</title>
 </head>
 <body>
+  <header>
     <div class="topnav">
-        <a href="/pages/login.html">Iniciar sesión</a>
-        <a href="#">Registrarse</a>
-      </div>
-      <nav>
-          <input type="checkbox" id="check">
-          <label for="check" class="checkbtn">
-              <i class="fas fa-bars"></i>
-          </label>
-          <a href="/">
-            <img src="/images/LaBelleFrance.svg" alt="Logo La Belle France" height="100px" width="100px">
-          </a>
-          <ul>
-              <li><a href="/pages/cocinatradicional.html">Cocina tradicional</a></li>
-              <li><a href="/pages/pasteleria.html">Pastelería</a></li>
-              <li><a href="/pages/quesosyvinos.html">Quesos y vinos</a></li>
-              <li><a href="/pages/restaurantes.html">Restaurantes</a></li>
-              <li><a href="/pages/comidacallejera.html">Comida callejera</a></li>
-          </ul>
-      </nav>
-      <div class="container">
-        <section class="herococinatradicional">
-          <div class="left">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis recusandae temporibus nobis, reprehenderit cupiditate veniam consectetur necessitatibus iste earum. Quibusdam facilis saepe asperiores vero similique temporibus nam est praesentium deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis recusandae temporibus nobis, reprehenderit cupiditate veniam consectetur necessitatibus iste earum. Quibusdam facilis saepe asperiores vero similique temporibus nam est praesentium deserunt.</p>
-          </div>
-          <div class="right">
-            <img src="/images/streetfood.png" alt="Comida callejera">
-          </div>
-        </section>
-        <section id="topics">
-          <div class="topiccard">
-            <img src="/images/frenchfood.png" alt="Cocina tradicional" width="100px" height="100px">
-            <p>Conoce más sobre la cocina tradicional francesa.</p>
-            <a href="/pages/cocinatradicional.html">Cocina tradicional</a>
-          </div>
-          <div class="topiccard">
-            <img src="/images/pasteleria.png" alt="Pastelería" width="100px" height="100px">
-            <p>Conoce más sobre la pastelería francesa.</p>
-            <a href="/pages/pasteleria.html">Pastelería</a>
-          </div>
-          <div class="topiccard">
-            <img src="/images/quesos.png" alt="Quesos y vinos" width="100px" height="100px">
-            <p>Conoce más sobre los quesos y vinos franceses</p>
-            <a href="/pages/quesosyvinos.html">Quesos y vinos</a>
-          </div>
-          <div class="topiccard">
-            <img src="/images/restaurantes.png" alt="Restaurantes" width="100px" height="100px">
-            <p>Conoce más sobre los restaurantes franceses.</p>
-            <a href="/pages/restaurantes.html">Restaurantes</a>
-          </div>
-          <div class="topiccard">
-            <img src="/images/streetfood.png" alt="Comida callejera" width="100px" height="100px">
-            <p>Conoce más sobre la comida callejera  francesa.</p>
-            <a href="/pages/cocinatradicional.html">Comida callejera</a>
-          </div>
-        </section>
-      </div>
-      <footer>
-        <div class="footer-content">
-          <h3>La Belle France</h3>
-          <p>La Belle France es una página web dedicada a la gastronomía francesa. Aquí podrás encontrar información sobre la cocina tradicional, pastelería, quesos y vinos, restaurantes y comida callejera.</p>
-          <ul>
+        <a href="./login.html">INICIAR SESIÓN</a>
+        <a href="#">REGISTRARSE</a>
+        <label for="language-select" class="visually-hidden">Seleccionar idioma</label>
+        <select id="language-select">
+            <option value="es">ES</option>
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+        </select>
+    </div>
+    <nav>
+        <a href="/">
+            <img src="/images/LaBelleFrance.svg" alt="Logo La Belle France" width="100" height="100">
+        </a>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="30" height="30">
+                <path fill="currentColor" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+            </svg>
+        </label>
+        <ul>
+            <li><a href="./cocinatradicional.html">Cocina tradicional</a></li>
+            <li><a href="./pasteleria.html">Pastelería</a></li>
+            <li><a href="./quesosyvinos.html">Quesos y vinos</a></li>
+            <li><a href="./restaurantes.html">Restaurantes</a></li>
+            <li><a href="./comidacallejera.html">Comida callejera</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div>
+        <h1>Comida callejera</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
+    </div>
+    <div>
+        <h1>Comida callejera</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
+    </div>
+    <div>
+        <h1>Comida callejera</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
+    </div>
+    <div>
+        <h1>Comida callejera</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
+    </div>
+    <div>
+        <h1>Comida callejera</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis aut quos eum in. Id placeat, quam officia amet recusandae mollitia porro esse unde suscipit ducimus animi libero velit nisi consequuntur?</p>
+    </div>
+</main>
+<footer>
+    <div class="footer-content">
+        <h3>La Belle France</h3>
+        <p>La Belle France es una página web dedicada a la gastronomía francesa. Aquí podrás encontrar información sobre la cocina tradicional, pastelería, quesos y vinos, restaurantes y comida callejera.</p>
+        <ul>
             <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
-            <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i> </a></li>
+            <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
             <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
             <li><a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
-          </ul>
-        </div>
-        <div class="footer-bottom">
-            &copy; La Belle France | Todos los derechos reservados | Designed by <a href="#">Elianis Medina</a>
-          </div>
-      </footer>
+        </ul>
+    </div>
+    <div class="footer-bottom">
+        &copy; La Belle France | Todos los derechos reservados | Designed by <a href="#">Elianis Medina</a>
+    </div>
+</footer>
 
 </body>
 </html>
