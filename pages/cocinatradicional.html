@@ -52,7 +52,7 @@
         aside {
             width: 30%;
             min-width: 300px;
-            max-width: 400px;
+            max-width: 400px; /* Constrain to prevent resizing */
             padding: 40px;
             background-color: #FF7A7A;
             height: auto;
@@ -77,9 +77,9 @@
             text-align: justify;
             min-height: 120px;
             width: 100%;
-            padding: 10px;
+            padding: 10px; /* Stabilize text block */
             box-sizing: border-box;
-            overflow: hidden;
+            overflow: hidden; /* Prevent overflow shifts */
         }
         /* YouTube Container */
         .youtube-container {
@@ -90,7 +90,7 @@
             min-height: 180px;
             width: 100%;
             max-width: 340px;
-            background-color: #eee;
+            background-color: #eee; /* Fallback color */
         }
         .youtube-container .youtube-placeholder {
             position: absolute;
@@ -186,10 +186,6 @@
         }
         nav ul li a:hover {
             color: #171717;
-        }
-        nav ul li a:focus {
-            outline: 2px solid #ff2929;
-            outline-offset: 2px;
         }
         .checkbtn {
             display: none;
@@ -408,8 +404,8 @@
 <body>
     <header>
         <div class="topnav">
-            <a href="./login.html" aria-label="Iniciar sesión en La Belle France">INICIAR SESIÓN</a>
-            <a href="#" aria-label="Registrarse en La Belle France">REGISTRARSE</a>
+            <a href="./login.html">INICIAR SESIÓN</a>
+            <a href="#">REGISTRARSE</a>
             <label for="language-select" class="visually-hidden">Seleccionar idioma</label>
             <select id="language-select">
                 <option value="es">ES</option>
@@ -418,7 +414,7 @@
             </select>
         </div>
         <nav>
-            <a href="/" class="logo-link" aria-label="Página principal de La Belle France">
+            <a href="/" class="logo-link">
                 <img src="/images/LaBelleFrance.svg" alt="Logo La Belle France" width="100" height="100">
             </a>
             <input type="checkbox" id="check">
@@ -428,11 +424,11 @@
                 </svg>
             </label>
             <ul>
-                <li><a href="./cocinatradicional.html" aria-label="Explorar cocina tradicional francesa">Cocina tradicional</a></li>
-                <li><a href="./pasteleria.html" aria-label="Descubrir pastelería francesa">Pastelería</a></li>
-                <li><a href="./quesosyvinos.html" aria-label="Conocer quesos y vinos franceses">Quesos y vinos</a></li>
-                <li><a href="./restaurantes.html" aria-label="Visitar restaurantes franceses">Restaurantes</a></li>
-                <li><a href="./comidacallejera.html" aria-label="Probar comida callejera francesa">Comida callejera</a></li>
+                <li><a href="./cocinatradicional.html">Cocina tradicional</li>
+                <li><a href="./pasteleria.html">Pastelería</a></li>
+                <li><a href="./quesosyvinos.html">Quesos y vinos</a></li>
+                <li><a href="./restaurantes.html">Restaurantes</a></li>
+                <li><a href="./comidacallejera.html">Comida callejera</a></li>
             </ul>
         </nav>
     </header>
@@ -484,14 +480,14 @@
             <h3>La Belle France</h3>
             <p>La Belle France es una página web dedicada a la gastronomía francesa. Aquí podrás encontrar información sobre la cocina tradicional, pastelería, quesos y vinos, restaurantes y comida callejera.</p>
             <ul>
-                <li><a href="#" aria-label="Perfil de Facebook de La Belle France"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="#" aria-label="Perfil de Twitter de La Belle France"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#" aria-label="Perfil de Instagram de La Belle France"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#" aria-label="Canal de YouTube de La Belle France"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
             </ul>
         </div>
         <div class="footer-bottom">
-            © La Belle France | Todos los derechos reservados | Designed by <a href="#" aria-label="Sitio web de Elianis Medina">Elianis Medina</a>
+            © La Belle France | Todos los derechos reservados | Designed by <a href="#">Elianis Medina</a>
         </div>
     </footer>
     <script defer>
@@ -520,18 +516,16 @@
                                 }
                             });
                         },
-                        {
-                            root: null,
-                            rootMargin: "100px",
-                            threshold: 0.1
-                        }
+                        { rootMargin: "100px", threshold: 0.2 }
                     );
+                    containers.forEach(container => observer.observe(container));
+                } else {
                     containers.forEach(container => {
-                        observer.observe(container);
-                    });
-
-        }
-            }, 1000);
+                        const videoId = container.getAttribute("data-video-id");
+                        container.innerHTML = `<iframe width="340" height="180" src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0" title="Cocina Tradicional Francesa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+ quedar                    });
+                }
+            }, 100);
         });
     </script>
 </body>
