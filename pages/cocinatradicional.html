@@ -52,7 +52,9 @@
         }
         .youtube-container {
             position: relative;
-            z-index: 0; /* Ensure it is below the topnav and nav */
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
         }
         .youtube-container iframe {
             position: absolute;
@@ -61,7 +63,7 @@
             width: 100%;
             height: 100%;
             border: none;
-            z-index: 1; /* Lower z-index to ensure it doesn't overlap */
+            z-index: 1;
         }
         
         /* Top Navigation */
