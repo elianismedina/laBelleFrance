@@ -52,19 +52,30 @@
         }
         .youtube-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 52.94%; /* 180/340 */
             height: 0;
             overflow: hidden;
-        }
-        .youtube-container iframe {
+            min-height: 180px;
+            width: 100%;
+            max-width: 340px;
+          }
+          
+          .youtube-container .youtube-placeholder {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: none;
-            z-index: 1;
-        }
+            background: #eee url('https://img.youtube.com/vi/DFiab-unMuY/hqdefault.jpg') center/cover no-repeat;
+          }
+          
+          .youtube-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
         
         /* Top Navigation */
         .topnav {
@@ -313,31 +324,43 @@
 <body>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const iframes = document.querySelectorAll("iframe[data-src]");
-            if ("IntersectionObserver" in window) {
-                const observer = new IntersectionObserver(
-                    (entries, observer) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                const iframe = entry.target;
-                                iframe.src = iframe.getAttribute("data-src");
-                                iframe.removeAttribute("data-src");
-                                observer.unobserve(iframe);
-                            }
-                        });
-                    },
-                    { rootMargin: "200px" } // Load 200px before visible
-                );
-                iframes.forEach(iframe => observer.observe(iframe));
-            } else {
-                // Fallback for older browsers
-                iframes.forEach(iframe => {
-                    iframe.src = iframe.getAttribute("data-src");
-                    iframe.removeAttribute("data-src");
+          const containers = document.querySelectorAll(".youtube-container[data-video-id]");
+          if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver(
+              (entries, observer) => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                    const container = entry.target;
+                    const videoId = container.getAttribute("data-video-id");
+                    // Create iframe dynamically
+                    const iframe = document.createElement("iframe");
+                    iframe.setAttribute("width", "340");
+                    iframe.setAttribute("height", "180");
+                    iframe.setAttribute("src", `https://www.youtube-nocookie.com/embed/${videoId}`);
+                    iframe.setAttribute("title", "Cocina Tradicional Francesa");
+                    iframe.setAttribute("frameborder", "0");
+                    iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+                    iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+                    iframe.setAttribute("allowfullscreen", "");
+                    // Replace placeholder with iframe
+                    container.innerHTML = "";
+                    container.appendChild(iframe);
+                    observer.unobserve(container);
+                  }
                 });
-            }
+              },
+              { rootMargin: "200px" } // Load 200px before visible
+            );
+            containers.forEach(container => observer.observe(container));
+          } else {
+            // Fallback: Load iframe immediately
+            containers.forEach(container => {
+              const videoId = container.getAttribute("data-video-id");
+              container.innerHTML = `<iframe width="340" height="180" src="https://www.youtube-nocookie.com/embed/${videoId}" title="Cocina Tradicional Francesa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+            });
+          }
         });
-    </script>
+      </script>
     <header>
         <div class="topnav">
             <a href="./login.html">INICIAR SESIÓN</a>
@@ -371,19 +394,9 @@
     <main class="main-container">
         <aside>
             <article>
-                <div class="youtube-container">
-                    <iframe 
-                        width="340" 
-                        height="180" 
-                        data-src="https://www.youtube-nocookie.com/embed/DFiab-unMuY" 
-                        title="Cocina Tradicional Francesa" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen
-                        loading="lazy">
-                    </iframe>
-                </div>
+                <div class="youtube-container" data-video-id="DFiab-unMuY">
+                    <div class="youtube-placeholder"></div>
+                  </div>
                 <p>
                     La cocina tradicional francesa es una piedra angular de la gastronomía mundial, celebrada por su elegancia, diversidad e historia profundamente arraigada. Desde el encanto rústico de los platos regionales hasta las refinadas técnicas de la alta cocina, la comida francesa refleja una pasión por los ingredientes de calidad y los métodos tradicionales.
 
