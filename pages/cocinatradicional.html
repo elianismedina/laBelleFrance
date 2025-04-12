@@ -17,7 +17,7 @@
                 observer.unobserve(iframe);
               }
             });
-          });
+          }, { rootMargin: "100px" }); // Load slightly before visible
           iframes.forEach(iframe => observer.observe(iframe));
         });
       </script>
@@ -349,12 +349,13 @@
                     width="340" 
                     height="180" 
                     data-src="https://www.youtube.com/embed/DFiab-unMuY?si=QOb_wV36BCTw7i3J"
-                    title="YouTube video player" 
+                    title="Cocina Tradicional Francesa" 
                     frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen
                     loading="lazy"
                     ></iframe>
-
                 </div>
                 <p>
                     La cocina tradicional francesa es una piedra angular de la gastronomía mundial, celebrada por su elegancia, diversidad e historia profundamente arraigada. Desde el encanto rústico de los platos regionales hasta las refinadas técnicas de la alta cocina, la comida francesa refleja una pasión por los ingredientes de calidad y los métodos tradicionales.
