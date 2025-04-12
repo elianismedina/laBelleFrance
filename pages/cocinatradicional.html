@@ -6,6 +6,21 @@
     <meta name="description" content="La Belle France Cocina Tradicional">
     <!-- Preload the local font -->
     <link rel="preload" href="/fonts/Sofia-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const iframes = document.querySelectorAll("iframe[data-src]");
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const iframe = entry.target;
+                iframe.src = iframe.getAttribute("data-src");
+                observer.unobserve(iframe);
+              }
+            });
+          });
+          iframes.forEach(iframe => observer.observe(iframe));
+        });
+      </script>
     <!-- Inline critical CSS -->
     <style>
         @font-face {
@@ -48,6 +63,19 @@
             margin: 10px 0;
             text-align: justify;
         }
+        .youtube-container {
+            position: relative;
+            padding-bottom: 52.94%; /* 180/340 = ~52.94% for your iframe's aspect ratio */
+            height: 0;
+            overflow: hidden;
+          }
+          .youtube-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
         
         /* Top Navigation */
         .topnav {
@@ -316,8 +344,18 @@
     <main>
         <aside>
             <article>
-                <iframe width="340" height="180" src="https://www.youtube.com/embed/DFiab-unMuY?si=QOb_wV36BCTw7i3J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                
+                <div class="youtube-container">
+                    <iframe 
+                    width="340" 
+                    height="180" 
+                    data-src="https://www.youtube.com/embed/DFiab-unMuY?si=QOb_wV36BCTw7i3J"
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                    loading="lazy"
+                    ></iframe>
+
+                </div>
                 <p>
                     La cocina tradicional francesa es una piedra angular de la gastronomía mundial, celebrada por su elegancia, diversidad e historia profundamente arraigada. Desde el encanto rústico de los platos regionales hasta las refinadas técnicas de la alta cocina, la comida francesa refleja una pasión por los ingredientes de calidad y los métodos tradicionales.
 
