@@ -52,7 +52,7 @@
         }
         .youtube-container {
             position: relative;
-            padding-bottom: 52.94%; /* 180/340 = ~52.94% for your iframe's aspect ratio */
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
           }
@@ -63,7 +63,7 @@
             width: 100%;
             height: 100%;
             z-index: 1; /* Lower z-index to ensure it doesn't overlap */
-            position: relative; /* Ensure it respects the stacking context */
+            border: none; /* Ensure no border is applied */
           }
         
         /* Top Navigation */
@@ -305,31 +305,31 @@
 <body>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-          const iframes = document.querySelectorAll("iframe[data-src]");
-          if ("IntersectionObserver" in window) {
-            const observer = new IntersectionObserver(
-              (entries, observer) => {
-                entries.forEach(entry => {
-                  if (entry.isIntersecting) {
-                    const iframe = entry.target;
+            const iframes = document.querySelectorAll("iframe[data-src]");
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver(
+                    (entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const iframe = entry.target;
+                                iframe.src = iframe.getAttribute("data-src");
+                                iframe.removeAttribute("data-src");
+                                observer.unobserve(iframe);
+                            }
+                        });
+                    },
+                    { rootMargin: "200px" } // Load 200px before visible
+                );
+                iframes.forEach(iframe => observer.observe(iframe));
+            } else {
+                // Fallback for older browsers
+                iframes.forEach(iframe => {
                     iframe.src = iframe.getAttribute("data-src");
                     iframe.removeAttribute("data-src");
-                    observer.unobserve(iframe);
-                  }
                 });
-              },
-              { rootMargin: "200px" } // Load 200px before visible
-            );
-            iframes.forEach(iframe => observer.observe(iframe));
-          } else {
-            // Fallback for older browsers
-            iframes.forEach(iframe => {
-              iframe.src = iframe.getAttribute("data-src");
-              iframe.removeAttribute("data-src");
-            });
-          }
+            }
         });
-      </script>
+    </script>
     <header>
         <div class="topnav">
             <a href="./login.html">INICIAR SESIÓN</a>
@@ -365,16 +365,16 @@
             <article>
                 <div class="youtube-container">
                     <iframe 
-                    width="340" 
-                    height="180" 
-                    data-src="https://www.youtube-nocookie.com/embed/DFiab-unMuY"
-                    title="Cocina Tradicional Francesa" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen
-                    loading="lazy"
-                    ></iframe>
+                        width="340" 
+                        height="180" 
+                        data-src="https://www.youtube-nocookie.com/embed/DFiab-unMuY" 
+                        title="Cocina Tradicional Francesa" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
                 </div>
                 <p>
                     La cocina tradicional francesa es una piedra angular de la gastronomía mundial, celebrada por su elegancia, diversidad e historia profundamente arraigada. Desde el encanto rústico de los platos regionales hasta las refinadas técnicas de la alta cocina, la comida francesa refleja una pasión por los ingredientes de calidad y los métodos tradicionales.
