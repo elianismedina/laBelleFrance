@@ -278,6 +278,10 @@ ul li a:hover {
     text-align: center;
     font-size: 14px;
 }
+.footer-bottom a {
+    color: #ffffff;
+    text-decoration: none;
+}
 form input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
