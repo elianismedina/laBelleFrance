@@ -7,8 +7,9 @@
     <!-- Preload fonts -->
     <link rel="preload" href="/fonts/Sofia-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9FegI7aE.woff2" as="font" type="font/woff2" crossorigin>
-    <!-- Preload logo -->
+    <!-- Preload logo and YouTube thumbnail -->
     <link rel="preload" href="/images/LaBelleFrance.svg" as="image">
+    <link rel="preload" href="https://img.youtube.com/vi/DFiab-unMuY/hqdefault.jpg" as="image">
     <style>
         @font-face {
             font-family: 'Sofia';
@@ -27,7 +28,7 @@
         }
         /* General Styles */
         body {
-            font-family: 'Sofia', 'Dancing Script', cursive;
+            font-family: 'Sofia', 'Dancing Script', Georgia, cursive;
             margin: 0;
             padding: 0;
             min-height: 100vh;
@@ -48,11 +49,12 @@
             padding: 20px;
             box-sizing: border-box;
             min-height: 400px;
+            contain: layout; /* Isolate flexbox */
         }
         aside {
-            width: 30%;
+            flex: 0 0 30%;
             min-width: 300px;
-            max-width: 400px; /* Constrain to prevent resizing */
+            max-width: 400px;
             padding: 40px;
             background-color: #FF7A7A;
             height: auto;
@@ -72,14 +74,19 @@
         aside article p {
             font-size: 16px;
             line-height: 1.6;
+            letter-spacing: 0.01em; /* Align font metrics */
             color: #3d3bf3;
             margin: 10px 0;
             text-align: justify;
-            min-height: 120px;
             width: 100%;
-            padding: 10px; /* Stabilize text block */
+            padding: 10px;
             box-sizing: border-box;
-            overflow: hidden; /* Prevent overflow shifts */
+            overflow: hidden;
+            display: block;
+            contain: layout; /* Isolate text rendering */
+        }
+        aside article p:first-of-type {
+            min-height: 140px; /* Extra space for first <p> */
         }
         /* YouTube Container */
         .youtube-container {
@@ -90,7 +97,7 @@
             min-height: 180px;
             width: 100%;
             max-width: 340px;
-            background-color: #eee; /* Fallback color */
+            background-color: #eee;
         }
         .youtube-container .youtube-placeholder {
             position: absolute;
@@ -186,6 +193,10 @@
         }
         nav ul li a:hover {
             color: #171717;
+        }
+        nav ul li a:focus {
+            outline: 2px solid #ff2929;
+            outline-offset: 2px;
         }
         .checkbtn {
             display: none;
@@ -404,8 +415,8 @@
 <body>
     <header>
         <div class="topnav">
-            <a href="./login.html">INICIAR SESIÓN</a>
-            <a href="#">REGISTRARSE</a>
+            <a href="./login.html" aria-label="Iniciar sesión en La Belle France">INICIAR SESIÓN</a>
+            <a href="#" aria-label="Registrarse en La Belle France">REGISTRARSE</a>
             <label for="language-select" class="visually-hidden">Seleccionar idioma</label>
             <select id="language-select">
                 <option value="es">ES</option>
@@ -414,7 +425,7 @@
             </select>
         </div>
         <nav>
-            <a href="/" class="logo-link">
+            <a href="/" class="logo-link" aria-label="Página principal de La Belle France">
                 <img src="/images/LaBelleFrance.svg" alt="Logo La Belle France" width="100" height="100">
             </a>
             <input type="checkbox" id="check">
@@ -424,11 +435,11 @@
                 </svg>
             </label>
             <ul>
-                <li><a href="./cocinatradicional.html">Cocina tradicional</li>
-                <li><a href="./pasteleria.html">Pastelería</a></li>
-                <li><a href="./quesosyvinos.html">Quesos y vinos</a></li>
-                <li><a href="./restaurantes.html">Restaurantes</a></li>
-                <li><a href="./comidacallejera.html">Comida callejera</a></li>
+                <li><a href="./cocinatradicional.html" aria-label="Explorar cocina tradicional francesa">Cocina tradicional</a></li>
+                <li><a href="./pasteleria.html" aria-label="Descubrir pastelería francesa">Pastelería</a></li>
+                <li><a href="./quesosyvinos.html" aria-label="Conocer quesos y vinos franceses">Quesos y vinos</a></li>
+                <li><a href="./restaurantes.html" aria-label="Visitar restaurantes franceses">Restaurantes</a></li>
+                <li><a href="./comidacallejera.html" aria-label="Probar comida callejera francesa">Comida callejera</a></li>
             </ul>
         </nav>
     </header>
@@ -480,14 +491,14 @@
             <h3>La Belle France</h3>
             <p>La Belle France es una página web dedicada a la gastronomía francesa. Aquí podrás encontrar información sobre la cocina tradicional, pastelería, quesos y vinos, restaurantes y comida callejera.</p>
             <ul>
-                <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#" aria-label="Perfil de Facebook de La Belle France"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#" aria-label="Perfil de Twitter de La Belle France"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" aria-label="Perfil de Instagram de La Belle France"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" aria-label="Canal de YouTube de La Belle France"><i class="fab fa-youtube"></i></a></li>
             </ul>
         </div>
         <div class="footer-bottom">
-            © La Belle France | Todos los derechos reservados | Designed by <a href="#">Elianis Medina</a>
+            © La Belle France | Todos los derechos reservados | Designed by <a href="#" aria-label="Sitio web de Elianis Medina">Elianis Medina</a>
         </div>
     </footer>
     <script defer>
@@ -510,22 +521,23 @@
                                     iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
                                     iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
                                     iframe.setAttribute("allowfullscreen", "");
+                                    iframe.setAttribute("loading", "lazy");
                                     container.innerHTML = "";
                                     container.appendChild(iframe);
                                     observer.unobserve(container);
                                 }
                             });
                         },
-                        { rootMargin: "100px", threshold: 0.2 }
+                        { rootMargin: "50px", threshold: 0.5 }
                     );
                     containers.forEach(container => observer.observe(container));
                 } else {
                     containers.forEach(container => {
                         const videoId = container.getAttribute("data-video-id");
-                        container.innerHTML = `<iframe width="340" height="180" src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0" title="Cocina Tradicional Francesa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
- quedar                    });
+                        container.innerHTML = `<iframe width="340" height="180" src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0" title="Cocina Tradicional Francesa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>`;
+                    });
                 }
-            }, 100);
+            }, 200);
         });
     </script>
 </body>
