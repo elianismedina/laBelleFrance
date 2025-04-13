@@ -181,7 +181,6 @@ ul li a:hover {
     margin: 0 auto; /* Center content */
 }
 
-
 .card {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -194,8 +193,9 @@ ul li a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 450px; /* Consistent height */
+    min-height: 500px; /* Consistent height */
     transition: transform 0.3s;
+    overflow: hidden
 }
 
 .card h2 {
@@ -209,6 +209,8 @@ ul li a:hover {
     line-height: 1.5;
     color: #3d3bf3;
     flex-grow: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .card img {
@@ -599,7 +601,11 @@ span.psw {
 }
 
 @media (max-width: 768px) {
-    
+    .container {
+        grid-template-columns: 1fr;
+        min-height: 800px; /* Increased for mobile stacking */
+        padding: 10px;
+    }
     .topnav input {
         display: none; /* Hide search on mobile */
     }
@@ -624,5 +630,29 @@ span.psw {
     .herococinatradicional .left, .herococinatradicional .right {
         width: 100%;
         min-height: 350px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+    .container {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+}
+
+@media (max-width: 599px) {
+    .container {
+        grid-template-columns: 1fr; /* 1 column */
+        min-height: 1200px; /* Adjust for stacking */
     }
 }
