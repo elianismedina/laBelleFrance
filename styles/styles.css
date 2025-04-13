@@ -19,6 +19,12 @@ body {
     margin-bottom: 0px;
     padding-bottom: 0px;
 }
+h1 {
+    font-size: 1.5rem;
+    color: #3d3bf3;
+    text-align: center;
+    margin: 20px 0;
+}
 #loginBody {
     display: flex;
     flex-direction: column;
