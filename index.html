@@ -90,46 +90,80 @@
             max-width: 1200px; /* Cap width for large screens */
             margin: 0 auto; /* Center content */
         }
-        
         .card {
             background-color: #f9f9f9;
             border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin: 0px;
             padding: 20px;
             width: 100%;
             box-sizing: border-box;
             text-align: center;
-            min-height: 450px; /* Adjust based on image (197px) + text + padding */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            height: 500px; /* Fixed height */
+            min-height: 500px; /* Consistent height */
+            transition: transform 0.3s;
+            overflow: hidden
         }
+        
+        .card h2 {
+            margin: 10px 0;
+            color: #3d3bf3;
+        }
+        
+        .card p {
+            margin: 10px 0;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #3d3bf3;
+            flex-grow: 1;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        
         .card img {
             width: 100%;
             height: auto;
-            object-fit: cover;
             aspect-ratio: 350 / 197;
-            flex-shrink: 0;
+            object-fit: cover;
+            display: block;
+            min-height: 197px; /* Reserve space */
+            max-height: 197px; /* Reserve space */
         }
         .card h2 {
-            font-size: 1.5em;
             margin: 10px 0;
             color: #3d3bf3;
+            font-size: 1.25rem; /* Consistent sizing */
+            line-height: 1.4; /* Stable line height */
+            min-height: 28px;
         }
         .card p {
+            margin: 10px 0;
             font-size: 16px;
             line-height: 1.5;
-            margin: 10px 0;
             color: #3d3bf3;
+            flex-grow: 1;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            min-height: 72px; /* Reserve space */
+            max-height: 96px; /* Reserve space */
         }
+        
         .card a {
+            display: inline-block;
+            padding: 10px 30px;
+            background-color: #FF7A7A;
             color: #171717;
             text-decoration: none;
-            background-color: #FF7A7A;
-            padding: 10px 30px;
             border-radius: 20px;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+        
+        .card a:hover {
+            background-color: #cc2323;
         }
         #recipe {
             display: flex;
