@@ -599,11 +599,7 @@ span.psw {
 }
 
 @media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr;
-        min-height: 800px; /* Increased for mobile stacking */
-        padding: 10px;
-    }
+    
     .topnav input {
         display: none; /* Hide search on mobile */
     }
