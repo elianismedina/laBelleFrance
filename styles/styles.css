@@ -175,7 +175,7 @@ ul li a:hover {
     gap: 20px;
     padding: 20px;
     min-height: 600px; /* Increased to account for content */
-    contain: strict;
+    contain: layout;
     max-width: 1200px; /* Cap width for large screens */
     margin: 0 auto; /* Center content */
 }
