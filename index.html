@@ -7,7 +7,7 @@
     <!-- Preload the LCP image -->
     <link rel="preload" href="https://res.cloudinary.com/dxa54qfxx/image/upload/v1743951306/image2_udadlx.webp" as="image">
     <!-- Preload the local font -->
-    <link rel="preload" href="/fonts/Sofia-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Sofia-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <!-- Preload the logo image -->
     <link rel="preload" href="/images/LaBelleFrance.svg" as="image">
     <!-- Inline critical CSS -->
@@ -21,12 +21,15 @@
             font-display: swap;
         }
         body {
-            font-family: 'Sofia', 'Comic Sans MS';
+            font-family: 'Sofia', 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            max-width: 100%;
+            font-size: 16px; /* Baseline size */
+            line-height: 1.5; /* Consistent line height */
         }
         .topnav {
             display: flex;
