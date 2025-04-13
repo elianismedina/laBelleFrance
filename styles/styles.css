@@ -623,6 +623,9 @@ span.psw {
     .topnav input {
         display: none; /* Hide search on mobile */
     }
+    .topnav a{
+        font-size: 12px; /* Smaller font size */
+    }
     .card {
         min-height: 400px; /* Adjust for mobile */
     }
