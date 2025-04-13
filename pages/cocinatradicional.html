@@ -15,11 +15,11 @@
             src: url('https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9FegI7aE.woff2') format('woff2');
             font-weight: 400;
             font-style: normal;
-            font-display: optional;
+            font-display: swap;
         }
         /* Override external styles */
         body, nav ul li a, aside article .p-wrapper p {
-            font-family: 'Dancing Script', Georgia, cursive !important;
+            font-family: 'Dancing Script', serif !important;
         }
         /* General Styles */
         body {
@@ -30,7 +30,7 @@
             flex-direction: column;
             background-color: #f9f9f9;
             color: #171717;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.5;
             text-rendering: optimizeLegibility;
             overflow-wrap: break-word;
@@ -46,18 +46,19 @@
             contain: layout;
         }
         aside {
-            width: 300px !important;
-            min-width: 300px !important;
-            padding: 30px !important;
+            display: block !important;
+            width: 280px !important;
+            min-width: 280px !important;
+            padding: 20px !important;
             background-color: #FF7A7A;
             height: auto;
             box-sizing: border-box;
             min-height: 520px;
-            contain: layout;
+            contain: strict;
         }
         aside article {
             background-color: #ffffff;
-            padding: 10px !important;
+            padding: 8px !important;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             width: 240px !important;
@@ -65,25 +66,25 @@
             box-sizing: border-box;
         }
         aside article .p-wrapper {
-            width: 220px !important;
-            min-height: 220px !important;
+            width: 200px !important;
+            min-height: 240px !important;
             contain: layout;
         }
         aside article .p-wrapper p {
-            font-size: 14px !important;
+            font-size: 13px !important;
             line-height: 1.6em !important;
             letter-spacing: 0.01em;
             color: #3d3bf3;
             margin: 10px 0 !important;
             text-align: justify;
             width: 100% !important;
-            padding: 10px;
+            padding: 5px;
             box-sizing: border-box !important;
             display: block;
             white-space: normal;
             word-break: break-word;
-            max-height: 220px !important;
-            overflow: hidden;
+            max-height: 240px !important;
+            overflow-y: auto;
             font-weight: 400 !important;
             font-style: normal !important;
         }
@@ -319,7 +320,7 @@
             aspect-ratio: 1/1;
         }
         .topiccard p {
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.5;
             color: #3d3bf3;
             margin: 10px 0;
@@ -350,7 +351,7 @@
             min-height: 30px;
         }
         main .content > div p {
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.6;
             min-height: 80px;
         }
@@ -370,7 +371,7 @@
             margin-bottom: 10px;
         }
         .footer-content p {
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.5;
         }
         .footer-content ul {
