@@ -172,10 +172,10 @@ ul li a:hover {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding: 20px;
-    min-height: 1000px; /* Increased to account for content */
+    min-height: 1200px; /* Increased to account for content */
     contain:layout;
     max-width: 1200px; /* Cap width for large screens */
     margin: 0 auto; /* Center content */
@@ -193,6 +193,7 @@ ul li a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 500px; /* Fixed height */
     min-height: 500px; /* Consistent height */
     transition: transform 0.3s;
     overflow: hidden
@@ -220,12 +221,14 @@ ul li a:hover {
     object-fit: cover;
     display: block;
     min-height: 197px; /* Reserve space */
+    max-height: 197px; /* Reserve space */
 }
 .card h2 {
     margin: 10px 0;
     color: #3d3bf3;
     font-size: 1.25rem; /* Consistent sizing */
     line-height: 1.4; /* Stable line height */
+    min-height: 28px;
 }
 .card p {
     margin: 10px 0;
@@ -233,6 +236,10 @@ ul li a:hover {
     line-height: 1.5;
     color: #3d3bf3;
     flex-grow: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    min-height: 72px; /* Reserve space */
+    max-height: 96px; /* Reserve space */
 }
 
 .card a {
@@ -653,6 +660,17 @@ span.psw {
 @media (max-width: 599px) {
     .container {
         grid-template-columns: 1fr; /* 1 column */
-        min-height: 1200px; /* Adjust for stacking */
+        min-height: 1600px; /* Increased for stacked cards */
+    }
+    .card {
+        height: 450px; /* Slightly smaller for mobile */
+    }
+    .card img {
+        min-height: 180px;
+        max-height: 180px;
+    }
+    .card p {
+        min-height: 48px; /* ~2 lines */
+        max-height: 72px; /* ~3 lines */
     }
 }
