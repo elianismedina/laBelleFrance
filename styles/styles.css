@@ -160,7 +160,12 @@ ul li a:hover {
 .checkbtn {
     font-size: 30px;
     cursor: pointer;
-    display: none;
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 20px; /* Adjust based on your header height */
+    right: 20px;
+    z-index: 1001; /* Ensure it appears above other elements */
+    color: #ff2929; /* Icon color */
 }
 
 .checkbtn svg {
@@ -639,6 +644,9 @@ span.psw {
     .herococinatradicional .left, .herococinatradicional .right {
         width: 100%;
         min-height: 350px;
+    }
+    .checkbtn {
+        display: block; /* Show the button on smaller screens */
     }
 }
 @media (min-width: 1200px) {
