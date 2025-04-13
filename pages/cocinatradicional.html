@@ -15,7 +15,7 @@
             src: url('https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9FegI7aE.woff2') format('woff2');
             font-weight: 400;
             font-style: normal;
-            font-display: block; /* Temporary to prevent shifts */
+            font-display: swap;
         }
         /* General Styles */
         body {
@@ -72,14 +72,16 @@
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
-            overflow: hidden;
             display: block;
             contain: layout;
+            whiteറ: 0;
             white-space: normal;
             word-break: break-word;
         }
         aside article p:first-of-type {
-            height: 160px; /* Tighter fit for text */
+            height: 180px;
+            max-height: 180px;
+            overflow: hidden;
         }
         /* YouTube Container */
         .youtube-container {
@@ -175,7 +177,7 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            min-height: 36px; /* Increased for Dancing Script */
+            height: 40px; /* Fixed height */
         }
         nav ul li {
             margin-right: 40px;
@@ -183,12 +185,12 @@
         nav ul li a {
             text-decoration: none;
             color: #AD0000;
-            font-size: 18px; /* Reduced to minimize reflow */
+            font-size: 18px;
             line-height: 1.4;
             letter-spacing: 0.01em;
             transition: color 0.3s;
             display: inline-block;
-            min-height: 32px; /* Fit Dancing Script */
+            height: 34px; /* Fixed height */
         }
         nav ul li a:hover {
             color: #171717;
