@@ -162,7 +162,7 @@ ul li a:hover {
     cursor: pointer;
     display: none; /* Hidden by default */
     position: absolute;
-    top: 20px; /* Adjust based on your header height */
+    top: 120px; /* Adjust based on your header height */
     right: 20px;
     z-index: 1001; /* Ensure it appears above other elements */
     color: #ff2929; /* Icon color */
