@@ -67,6 +67,12 @@ nav ul li a {
 nav ul li a:hover {
     color: #171717;
 }
+nav img {
+    aspect-ratio: 1 / 1; /* Maintain a square aspect ratio */
+    width: 100px;
+    height: 100px;
+    object-fit: contain; /* Ensure the image fits within the reserved space */
+}
 .topnav {
     display: flex;
     justify-content: end;
