@@ -16,8 +16,10 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "Sofia", "Arial", sans-serif; /* Updated fallback */
+    font-family: "Sofia", "Arial", sans-serif;
     max-width: 100%;
+    font-size: 16px; /* Baseline size */
+    line-height: 1.5; /* Consistent line height */
 }
 
 h1 {
@@ -172,8 +174,10 @@ ul li a:hover {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
-    min-height: 500px;
+    min-height: 600px; /* Increased to account for content */
     contain: layout;
+    max-width: 1200px; /* Cap width for large screens */
+    margin: 0 auto; /* Center content */
 }
 
 .container > .card {
@@ -193,7 +197,8 @@ ul li a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.3s; /* Limited transition */
+    min-height: 450px; /* Consistent height */
+    transition: transform 0.3s;
 }
 
 .card h2 {
@@ -215,6 +220,20 @@ ul li a:hover {
     aspect-ratio: 350 / 197;
     object-fit: cover;
     display: block;
+    min-height: 197px; /* Reserve space */
+}
+.card h2 {
+    margin: 10px 0;
+    color: #3d3bf3;
+    font-size: 1.25rem; /* Consistent sizing */
+    line-height: 1.4; /* Stable line height */
+}
+.card p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #3d3bf3;
+    flex-grow: 1;
 }
 
 .card a {
@@ -262,6 +281,7 @@ ul li a:hover {
     padding: 30px;
     text-align: center;
     box-sizing: border-box;
+    min-height: 400px; /* Stabilize */
 }
 
 #recipe .right p {
@@ -479,6 +499,7 @@ img.avatar {
     padding: 34px;
     text-align: center;
     box-sizing: border-box;
+    min-height: 500px;
 }
 
 .herococinatradicional .left p {
@@ -581,102 +602,31 @@ span.psw {
 }
 
 @media (max-width: 768px) {
-    .checkbtn {
-        display: block;
-        margin: 10px;
-    }
-    ul {
-        position: fixed;
-        top: 80px;
-        right: -100%;
-        background-color: #ffffff;
-        width: 100%;
-        height: calc(100vh - 80px);
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 20px;
-        transition: right 0.3s ease-in-out;
-        z-index: 999;
-    }
-    ul li {
-        margin: 20px 0;
-    }
-    ul li a {
-        font-size: x-large;
-    }
-    #check:checked ~ ul {
-        right: 0;
-    }
     .container {
         grid-template-columns: 1fr;
-        min-height: 600px;
+        min-height: 800px; /* Increased for mobile stacking */
+        padding: 10px;
     }
     .card {
-        width: 100%;
+        min-height: 400px; /* Adjust for mobile */
+    }
+    .card img {
+        min-height: 180px; /* Reserve space for smaller screens */
     }
     #recipe {
         flex-direction: column;
-        min-height: 800px;
+        min-height: 900px;
     }
     #recipe .left, #recipe .right {
         width: 100%;
-        min-height: 300px;
-    }
-    #topics {
-        flex-direction: column;
-        align-items: center;
-    }
-    .topiccard {
-        width: 100%;
-        max-width: 300px;
-    }
-    .footer-content {
-        padding: 20px 10px;
-    }
-    .footer-content h3 {
-        font-size: 20px;
-    }
-    .footer-content p {
-        font-size: 14px;
-    }
-    .footer-content ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .footer-content ul li a {
-        width: 40px;
-        height: 40px;
-    }
-    .footer-bottom {
-        padding: 10px;
-        font-size: 12px;
-    }
-    #loginBody {
-        max-width: 100%;
-        padding: 20px;
-        min-height: 400px;
-        border: none;
-        border-radius: 0;
-    }
-    .topnav {
-        min-height: 50px;
-        padding: 10px;
-        justify-content: space-between;
-    }
-    .topnav a {
-        font-size: 12px;
-        padding: 10px;
-        margin: 0;
-    }
-    .topnav input[type=text] {
-        display: none;
+        min-height: 350px;
     }
     .herococinatradicional {
         flex-direction: column-reverse;
-        min-height: 800px;
+        min-height: 900px;
     }
     .herococinatradicional .left, .herococinatradicional .right {
         width: 100%;
-        min-height: 300px;
+        min-height: 350px;
     }
 }
