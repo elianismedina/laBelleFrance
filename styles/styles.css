@@ -175,8 +175,8 @@ ul li a:hover {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
-    min-height: 600px; /* Increased to account for content */
-    contain:content;
+    min-height: 1000px; /* Increased to account for content */
+    contain:strict;
     max-width: 1200px; /* Cap width for large screens */
     margin: 0 auto; /* Center content */
 }
