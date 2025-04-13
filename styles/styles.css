@@ -118,6 +118,7 @@ nav img {
     font-size: 12px;
     border-radius: 10px;
     width: 150px; /* Fixed width */
+
 }
 
 .topnav p {
@@ -602,6 +603,9 @@ span.psw {
         grid-template-columns: 1fr;
         min-height: 800px; /* Increased for mobile stacking */
         padding: 10px;
+    }
+    .topnav input {
+        display: none; /* Hide search on mobile */
     }
     .card {
         min-height: 400px; /* Adjust for mobile */
