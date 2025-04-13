@@ -82,10 +82,15 @@
         }
         .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             padding: 20px;
+            min-height: 1200px; /* Increased to account for content */
+            contain:layout;
+            max-width: 1200px; /* Cap width for large screens */
+            margin: 0 auto; /* Center content */
         }
+        
         .card {
             background-color: #f9f9f9;
             border: 1px solid #ddd;
