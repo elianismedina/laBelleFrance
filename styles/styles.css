@@ -6,7 +6,7 @@
 @font-face {
     font-family: 'Sofia';
     src: url('/fonts/Sofia-Regular.woff2') format('woff2'),
-        url('/fonts/Sofia-Regular.ttf') format('truetype');
+         url('/fonts/Sofia-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -34,14 +34,40 @@ header {
     top: 0;
 }
 nav {
-    background-color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 10px 20px;
+    background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    z-index: 10;
+    position: sticky;
+    top: 60px;
+    z-index: 999;
+    min-height: 120px;
+    contain: layout;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 40px;
+}
+nav ul li {
+    margin-right: 40px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #AD0000;
+    font-size: 18px;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    transition: color 0.3s;
+    display: inline-block;
+    height: 34px;
+}
+nav ul li a:hover {
+    color: #171717;
 }
 .topnav {
     display: flex;
@@ -267,23 +293,39 @@ ul li a:hover {
     color: white;
     padding: 20px;
     text-align: center;
-    position: relative; /* Change from fixed to relative */
-    width: 100%;
-    margin-top: 20px; /* Add margin to separate it from the content */
+    margin-top: auto;
 }
 .footer-content {
     padding: 20px;
 }
+.footer-content h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.footer-content p {
+    font-size: 13px;
+    line-height: 1.5;
+}
+.footer-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.footer-content ul li a {
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+.footer-content ul li a:hover {
+    color: #ff2929;
+}
 .footer-bottom {
     background-color: #2c2abf;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
+    padding: 10px;
     font-size: 14px;
-}
-.footer-bottom a {
-    color: #ffffff;
-    text-decoration: none;
 }
 form{
     padding: auto;
@@ -521,4 +563,51 @@ span.psw {
     .herococinatradicional .right img {
         height: auto;
     }
+}
+img {
+    aspect-ratio: attr(width) / attr(height);
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.main-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 400px;
+    contain: layout;
+}
+
+.youtube-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    min-height: 180px;
+    width: 100%;
+    max-width: 340px;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.youtube-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.youtube-container .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 68px;
+    height: 48px;
+    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"%3E%3Cpath fill="%23f00" fill-opacity=".8" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26zM27 35.57V12.43L45 24l-18 11.57z"/%3E%3C/svg%3E') no-repeat;
+    background-size: contain;
 }

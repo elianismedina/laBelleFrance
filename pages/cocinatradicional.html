@@ -6,6 +6,7 @@
     <meta name="description" content="La Belle France Cocina Tradicional">
     <!-- Preload font -->
     <link rel="preload" href="https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9FegI7aE.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Sofia-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <!-- Preload logo and YouTube thumbnail -->
     <link rel="preload" href="/images/LaBelleFrance.svg" as="image">
     <link rel="preload" href="https://img.youtube.com/vi/DFiab-unMuY/hqdefault.jpg" as="image">
@@ -18,8 +19,8 @@
             font-display: swap;
         }
         /* Override external styles */
-        body, nav ul li a, aside article .p-wrapper p {
-            font-family: 'Dancing Script', serif !important;
+        body, nav ul li a, aside article p {
+            font-family: 'Sofia', sans-serif;
         }
         /* General Styles */
         body {
@@ -65,29 +66,7 @@
             min-height: 400px;
             box-sizing: border-box;
         }
-        aside article .p-wrapper {
-            width: 200px !important;
-            min-height: 240px !important;
-            contain: layout;
-        }
-        aside article .p-wrapper p {
-            font-size: 13px !important;
-            line-height: 1.6em !important;
-            letter-spacing: 0.01em;
-            color: #3d3bf3;
-            margin: 10px 0 !important;
-            text-align: justify;
-            width: 100% !important;
-            padding: 5px;
-            box-sizing: border-box !important;
-            display: block;
-            white-space: normal;
-            word-break: break-word;
-            max-height: 240px !important;
-            overflow-y: auto;
-            font-weight: 400 !important;
-            font-style: normal !important;
-        }
+        
         /* YouTube Container */
         .youtube-container {
             position: relative;
@@ -423,7 +402,10 @@
             }
         }
     </style>
-    
+    <link rel="stylesheet" href="/styles/styles.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/styles/styles.css">
+    </noscript>
     <title>Cocina Tradicional</title>
 </head>
 <body>
@@ -461,25 +443,28 @@
         <aside>
             <article>
                 <div class="youtube-container">
-                    <img src="https://img.youtube.com/vi/DFiab-unMuY/hqdefault.jpg" alt="Vista previa de video de Cocina Tradicional Francesa" width="340" height="180">
+                    <img src="https://img.youtube.com/vi/DFiab-unMuY/hqdefault.jpg" 
+                         alt="Vista previa de video de Cocina Tradicional Francesa" 
+                         width="340" 
+                         height="180">
                     <div class="play-button"></div>
                 </div>
-                <div class="p-wrapper">
+                <div>
                     <p>
                         La cocina tradicional francesa es una piedra angular de la gastronomía mundial, celebrada por su elegancia, diversidad e historia profundamente arraigada. Desde el encanto rústico de los platos regionales hasta las refinadas técnicas de la alta cocina, la comida francesa refleja una pasión por los ingredientes de calidad y los métodos tradicionales.
                     </p>
                 </div>
-                <div class="p-wrapper">
+                <div>
                     <p>
                         En esencia, la cocina francesa prioriza el equilibrio: piense en el contundente cassoulet del sur, un guiso de judías, pato y salchicha cocinado a fogo lento, o en la delicada sencillez de un coq au vin, un pollo braseado en vino tinto con champiñones y cebolla. Las regiones costeras ofrecen tesoros como la bullabesa, un aromático guiso de pescado marsellés, mientras que Normandía ofrece quesos cremosos y delicias a base de manzana como la tarta tatin. El pan y la repostería, desde las crujientes baguettes hasta los cruasanes con mantequilla, son productos básicos indispensables, a menudo acompañados de queso artesanal o paté.
                     </p>
                 </div>
-                <div class="p-wrapper">
+                <div>
                     <p>
                         Lo que distingue a la cocina francesa es su respeto por la estacionalidad y el terroir: la idea de que los ingredientes saben mejor cuando se obtienen localmente y se preparan con esmero. Las comidas son un ritual, pensadas para saborearlas lentamente con buen vino y en la mejor compañía. Esta filosofía le ha valido a la gastronomía francesa un lugar en la lista del Patrimonio Cultural Inmaterial de la UNESCO.
                     </p>
                 </div>
-                <div class="p-wrapper">
+                <div>
                     <p>
                         Para adentrarse en este mundo, haga clic en el video de arriba para ver el arte de preparar un plato clásico francés. Tanto si cocina en casa como si es un gourmet curioso, la cocina tradicional francesa le invita a relajarse y saborear la historia en cada bocado.
                     </p>
