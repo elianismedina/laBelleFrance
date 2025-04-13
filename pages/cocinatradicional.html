@@ -5,36 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="La Belle France Cocina Tradicional">
     <!-- Preload font -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9FegI7aE.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/Sofia-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <!-- Preload logo and YouTube thumbnail -->
     <link rel="preload" href="/images/LaBelleFrance.svg" as="image">
     <link rel="preload" href="https://img.youtube.com/vi/DFiab-unMuY/hqdefault.jpg" as="image">
     <style>
         @font-face {
-            font-family: 'Dancing Script';
-            src: url('https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9FegI7aE.woff2') format('woff2');
-            font-weight: 400;
+            font-family: 'Sofia';
+            src: url('/fonts/Sofia-Regular.woff2') format('woff2'),
+                url('/fonts/Sofia-Regular.ttf') format('truetype');
+            font-weight: normal;
             font-style: normal;
             font-display: swap;
         }
-        /* Override external styles */
-        body, nav ul li a, aside article p {
-            font-family: 'Sofia', sans-serif;
-        }
-        /* General Styles */
         body {
+            font-family: 'Sofia', 'Comic Sans MS';
             margin: 0;
             padding: 0;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background-color: #f9f9f9;
-            color: #171717;
-            font-size: 13px;
-            line-height: 1.5;
-            text-rendering: optimizeLegibility;
-            overflow-wrap: break-word;
+            height: auto;
         }
         /* Main Container */
         .main-container {
@@ -48,21 +39,20 @@
         }
         aside {
             display: block !important;
-            width: 280px !important;
-            min-width: 280px !important;
+            width: 380px !important;
+            min-width: 380px !important;
             padding: 20px !important;
             background-color: #FF7A7A;
             height: auto;
             box-sizing: border-box;
             min-height: 520px;
-            contain: strict;
         }
         aside article {
             background-color: #ffffff;
             padding: 8px !important;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 240px !important;
+            width: 340px !important;
             min-height: 400px;
             box-sizing: border-box;
         }
@@ -114,207 +104,102 @@
         /* Top Navigation */
         .topnav {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #FF7A7A;
-            color: #171717;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            justify-content: flex-end;
+            padding: 20px;
+            padding-right: 50px;
+            background: #FF7A7A;
             min-height: 60px;
+            align-items: center;
         }
         .topnav a, .topnav select {
             margin: 0 10px;
             text-decoration: none;
             color: #171717;
-            font-size: 14px;
-            padding: 8px 12px;
-            border-radius: 20px;
-            background-color: #ffffff;
-            transition: background-color 0.3s;
-        }
-        .topnav a:hover, .topnav select:hover {
-            background-color: #ff2929;
-            color: #ffffff;
         }
         .topnav select {
-            border: none;
-            outline: none;
-            cursor: pointer;
+            width: 60px;
         }
-        /* Navigation Menu */
+        .topnav a {
+            color: #171717;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 5px;
+            background-color: #b3a6d6;
+            padding: 7px;
+            border-radius: 20px;
+        }
+        .topnav input[type=text] {
+            float: right;
+            padding: 4px;
+            border: none;
+            margin-top: 0px;
+            margin-right: 16px;
+            margin-left: 16px;
+            font-size: 12px;
+            border-radius: 10px;
+        }
+        .topnav p {
+            color: white;
+            text-decoration: none;
+            font-size: 10px;
+            margin: 4px;
+        }
         nav {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            justify-content: space-between;
+            padding: 0 20px;
             background-color: #ffffff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 60px;
-            z-index: 999;
-            min-height: 120px;
-            contain: layout;
-        }
-        nav a.logo-link {
-            display: block;
-            width: 100px;
-            height: 100px;
-        }
-        nav a.logo-link img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
         }
         nav ul {
             display: flex;
+            justify-content:center;
+            align-items: center;
+            flex-grow: 1;
             list-style: none;
-            padding: 0;
             margin: 0;
-            height: 40px;
+            padding: 20px;
+            min-height: 40px;
         }
         nav ul li {
             margin-right: 40px;
         }
         nav ul li a {
             text-decoration: none;
-            color: #AD0000;
-            font-size: 18px;
-            line-height: 1.4;
-            letter-spacing: 0.01em;
+            color: #ff2929;
+        }
+        .logo {
+            font-size: 1.5rem;
+        }
+        ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        ul li {
+            margin-right: 40px;
+        }
+        ul li a {
+            color: #ff2929;
+            text-decoration: none;
             transition: color 0.3s;
-            display: inline-block;
-            height: 34px;
+            font-family: "Sofia", "Comic Sans MS", cursive;
+            font-size: x-large;
         }
-        nav ul li a:hover {
-            color: #171717;
-        }
-        nav ul li a:focus {
-            outline: 2px solid #ff2929;
-            outline-offset: 2px;
-        }
+     
         .checkbtn {
+            font-size: 30px;
+            cursor: pointer;
             display: none;
+        }
+        .checkbtn svg {
+            color: #ff2929;
+            cursor: pointer;
         }
         #check {
             display: none;
-        }
-        /* Hero Section */
-        .herococinatradicional {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            padding: 40px;
-            gap: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            min-height: 300px;
-        }
-        .herococinatradicional .left {
-            width: 50%;
-            padding: 20px;
-            text-align: justify;
-            font-size: 18px;
-            line-height: 1.6;
-            color: #3d3bf3;
-            min-height: 100px;
-        }
-        .herococinatradicional .right img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        /* Recipe Section */
-        #recipe {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            padding: 40px;
-            gap: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            min-height: 300px;
-        }
-        #recipe .left img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        #recipe .right {
-            width: 50%;
-            padding: 20px;
-            text-align: justify;
-            font-size: 18px;
-            line-height: 1.6;
-            color: #3d3bf3;
-            min-height: 100px;
-        }
-        #recipe .right a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #FF7A7A;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 20px;
-            transition: background-color 0.3s;
-        }
-        #recipe .right a:hover {
-            background-color: #cc2323;
-        }
-        /* Topics Section */
-        #topics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-        .topiccard {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            min-height: 250px;
-        }
-        .topiccard:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .topiccard img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 15px;
-            aspect-ratio: 1/1;
-        }
-        .topiccard p {
-            font-size: 13px;
-            line-height: 1.5;
-            color: #3d3bf3;
-            margin: 10px 0;
-        }
-        .topiccard a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #FF7A7A;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 20px;
-            transition: background-color 0.3s;
-        }
-        .topiccard a:hover {
-            background-color: #cc2323;
         }
         /* Main Content */
         main .content > div {
@@ -338,16 +223,16 @@
         footer {
             background-color: #3d3bf3;
             color: white;
-            padding: 20px;
+            padding: 0px;
             text-align: center;
             margin-top: auto;
         }
         .footer-content {
-            padding: 20px;
+            padding: 10px;
         }
         .footer-content h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 14px;
+            margin-bottom: 6px;
         }
         .footer-content p {
             font-size: 13px;
@@ -374,31 +259,119 @@
             padding: 10px;
             font-size: 14px;
         }
+        .footer-bottom a {
+            color: white;
+            text-decoration: none;
+        }
         /* Responsive Design */
         @media (max-width: 768px) {
-            .main-container {
-                flex-direction: column;
-                min-height: auto;
+            .checkbtn {
+                display: block;
+                margin-right: 10px;
+                float: right;
+                margin-top: 10px;
+                margin-bottom: 10px;
             }
-            aside {
-                display: none;
-            }
-            main .content {
+            ul {
+                position: fixed;
+                top: 145px;
+                right: -100%;
+                background-color: rgb(255, 255, 255);
                 width: 100%;
-            }
-            .herococinatradicional, #recipe {
+                height: 70vh;
+                display: flex;
                 flex-direction: column;
-                text-align: center;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.3s;
+                z-index: 10;
             }
-            .herococinatradicional .left, #recipe .right {
-                width: 100%;
-                min-height: auto;
+            ul li {
+                margin: 20px 0;
             }
-            #topics {
+            ul li a {
+                font-size: x-large;
+            }
+            #check:checked ~ ul {
+                right: 0;
+            }
+            .container {
                 grid-template-columns: 1fr;
             }
-            nav {
-                min-height: 100px;
+            .card {
+                width: 100%;
+            }
+            #recipe {
+                flex-direction: column;
+            }
+            #recipe .left, #recipe .right {
+                width: 100%;
+            }
+            #topics {
+                flex-direction: column;
+                align-items: center;
+            }
+            .topiccard {
+                width: 100%;
+            }
+            .footer-content {
+                padding: 20px 10px;
+                bottom: 0px;
+            }
+            .footer-content h3 {
+                font-size: 20px;
+            }
+            .footer-content p {
+                font-size: 14px;
+            }
+            .footer-content ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .footer-content ul li a {
+                width: 40px;
+                height: 40px;
+            }
+            .footer-bottom {
+                padding: 10px;
+                font-size: 12px;
+            }
+            #loginBody {
+                max-width: 100%;
+                margin: auto;
+                padding: 20px;
+                margin-top: 20px;
+                border: none;
+                border-radius: 0px;
+            }
+            .topnav {
+                height: 55px;
+                padding: 5px;
+                justify-content: space-between;
+                position: sticky;
+                top: 0;
+            }
+            .topnav a {
+                font-size: 12px;
+                padding: 10px;
+                margin: 0px;
+            }
+            .topnav input[type=text] {
+                display: none;
+            }
+            .herococinatradicional {
+                flex-direction: column-reverse;
+                align-items: center;
+            }
+            .herococinatradicional .left, .herococinatradicional .right {
+                width: 100%;
+                height: auto;
+            }
+            .herococinatradicional .right img {
+                height: auto;
+            }
+            aside{
+                display: none !important;
             }
         }
     </style>
@@ -408,6 +381,7 @@
 <body>
     <header>
         <div class="topnav">
+            <input type="text" placeholder="Buscar...">
             <a href="./login.html" aria-label="Iniciar sesión en La Belle France">INICIAR SESIÓN</a>
             <a href="#" aria-label="Registrarse en La Belle France">REGISTRARSE</a>
             <label for="language-select" class="visually-hidden">Seleccionar idioma</label>
