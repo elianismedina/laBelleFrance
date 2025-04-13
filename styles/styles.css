@@ -197,7 +197,7 @@ ul li a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 500px; /* Consistent height */
+    min-height: 450px; /* Consistent height */
     transition: transform 0.3s;
 }
 
@@ -234,7 +234,6 @@ ul li a:hover {
     line-height: 1.5;
     color: #3d3bf3;
     flex-grow: 1;
-    width: 100%;
 }
 
 .card a {
