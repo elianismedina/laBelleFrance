@@ -175,7 +175,7 @@ ul li a:hover {
     gap: 20px;
     padding: 20px;
     min-height: 600px; /* Increased to account for content */
-    contain: layout;
+    contain: strict;
     max-width: 1200px; /* Cap width for large screens */
     margin: 0 auto; /* Center content */
 }
@@ -197,7 +197,7 @@ ul li a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 450px; /* Consistent height */
+    min-height: 500px; /* Consistent height */
     transition: transform 0.3s;
 }
 
@@ -234,6 +234,15 @@ ul li a:hover {
     line-height: 1.5;
     color: #3d3bf3;
     flex-grow: 1;
+    width: 100%;
+}
+.card p, #recipe .right p, .herococinatradicional .left p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #3d3bf3;
+    margin: 10px 0;
+    width: 100%;
+    min-height: 24px; /* Reserve space for 1 line */
 }
 
 .card a {
